@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Coco You - Information Science student at Cornell University focused on data, finance, analytics, and research.">
+  <meta name="description" content="Coco You - Information Science student at Cornell University building data, product analytics, and web projects.">
   <meta property="og:title" content="Coco You">
-  <meta property="og:description" content="Information Science @ Cornell. Data, finance, analytics, and research.">
+  <meta property="og:description" content="Information Science @ Cornell. Data, product analytics, and web projects.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/profile-hd.png">
   <title>Coco You</title>
@@ -308,7 +308,7 @@
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -365,6 +365,26 @@
       margin: 0;
       color: #4f565d;
       line-height: 1.62;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .project-actions a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(38, 53, 47, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+      color: #273831;
+      font-size: 13px;
+      font-weight: 750;
     }
 
     .tags {
@@ -469,7 +489,7 @@
     <section class="hero" id="top">
       <div>
         <h1>Coco You</h1>
-        <p>Information Science @ Cornell</p>
+        <p>Data, product analytics, and web projects @ Cornell</p>
         <div class="button-row">
           <a class="button primary" href="assets/coco-you-resume.pdf">Resume</a>
           <a class="button" href="#projects">Projects</a>
@@ -505,9 +525,9 @@
           <img src="assets/profile-hd.png" alt="Portrait of Coco You">
         </div>
         <div>
-          <h2>I'm Coco, an Information Science student at Cornell University.</h2>
-          <p>I study Information Science and Environment & Sustainability with a Data Science concentration and Business minor. I like work that turns messy data, markets, and human behavior into clear decisions.</p>
-          <p>My experience spans venture capital, business analytics, quantitative research, and content analytics. I build financial models, dashboards, research briefs, and project pages that make information easier to understand.</p>
+          <h2>I'm Coco, an Information Science student building for data-driven product teams.</h2>
+          <p>I study Information Science and Environment & Sustainability at Cornell, with a Data Science concentration and Business minor. I am interested in roles where analytics, product judgment, and practical software meet.</p>
+          <p>My projects focus on searchable data products, web interfaces, and decision tools. My experience spans venture capital, business analytics, quantitative research, and content analytics, which helps me connect technical work to real users and business questions.</p>
         </div>
       </div>
     </section>
@@ -547,84 +567,59 @@
     </section>
 
     <section class="section blush" id="projects">
-      <h2>Projects</h2>
-      <p class="project-intro">Selected work across finance, analytics, research, and content strategy. Each project is built around the same habit: turn scattered information into a clearer decision.</p>
+      <h2>GitHub Projects</h2>
+      <p class="project-intro">Real projects from my GitHub, selected for big-tech internship applications: data products, frontend interaction, search/filter design, and clear product thinking.</p>
       <div class="project-grid">
         <article class="project-card mint">
           <div>
-            <div class="project-kicker">Venture Analysis</div>
-            <h3>Healthtech & Biotech Startup Screen</h3>
-            <p>Structured startup analysis combining market sizing, incentive alignment, downside risk, and capital efficiency into concise investment memos.</p>
+            <div class="project-kicker">Data Product</div>
+            <h3>ARPES Superconductivity Explorer</h3>
+            <p>A static research data website and local Python extraction tool for organizing ARPES / superconductivity literature. It supports material, element, keyword, article, figure, and source exploration with bilingual UI and browser-local data handling.</p>
+            <div class="project-actions">
+              <a href="https://cocoyou123456789-sketch.github.io/data/">Live site</a>
+              <a href="https://github.com/cocoyou123456789-sketch/data">GitHub</a>
+            </div>
           </div>
           <div class="tags">
-            <span class="tag">Market sizing</span>
-            <span class="tag">Financial modeling</span>
-            <span class="tag">VC memo</span>
+            <span class="tag">HTML</span>
+            <span class="tag">Python</span>
+            <span class="tag">JSON data</span>
+            <span class="tag">Search UX</span>
           </div>
         </article>
 
         <article class="project-card sky">
           <div>
-            <div class="project-kicker">Business Analytics</div>
-            <h3>Enterprise Software Performance Dashboard</h3>
-            <p>Designed KPI and reporting views to clarify revenue drivers, unit economics, and cash flow sustainability across software companies.</p>
+            <div class="project-kicker">Consumer Web Prototype</div>
+            <h3>MealCrew Group Ordering</h3>
+            <p>A static frontend prototype for group meal delivery in campus and city settings. It models active group orders, member thresholds, countdown deadlines, meal bundles, cart state, pickup points, and order progress.</p>
+            <div class="project-actions">
+              <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
+            </div>
           </div>
           <div class="tags">
-            <span class="tag">Dashboards</span>
-            <span class="tag">Unit economics</span>
-            <span class="tag">Excel</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Product flow</span>
           </div>
         </article>
 
         <article class="project-card blush-card">
           <div>
-            <div class="project-kicker">Growth Analytics</div>
-            <h3>Rednote Engagement Growth System</h3>
-            <p>Analyzed user behavior and content distribution patterns, then tested quantitative adjustments that drove major engagement and impression growth.</p>
+            <div class="project-kicker">Portfolio System</div>
+            <h3>Personal Website for Recruiting</h3>
+            <p>A responsive personal website deployed with GitHub Pages and a custom domain. It presents projects, resume, experience, social links, and a recruiter-friendly narrative in one fast static page.</p>
+            <div class="project-actions">
+              <a href="https://cocoylh.com">Live site</a>
+              <a href="https://github.com/cocoyou123456789-sketch/cocoywebsite">GitHub</a>
+            </div>
           </div>
           <div class="tags">
-            <span class="tag">Content data</span>
-            <span class="tag">A/B thinking</span>
-            <span class="tag">Reporting</span>
-          </div>
-        </article>
-
-        <article class="project-card lilac">
-          <div>
-            <div class="project-kicker">Research</div>
-            <h3>Published Koi Carp Physiology Study</h3>
-            <p>Co-authored peer-reviewed research on Herba Houttuyniae and intestinal function, contributing to data analysis and manuscript preparation.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">Empirical research</span>
-            <span class="tag">Data analysis</span>
-            <span class="tag">Publication</span>
-          </div>
-        </article>
-
-        <article class="project-card butter">
-          <div>
-            <div class="project-kicker">Student Fund</div>
-            <h3>DCF & Comparable Valuation Models</h3>
-            <p>Built DCF, comparable, and scenario models for a student-managed fund, focusing on performance drivers and downside risk.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">DCF</span>
-            <span class="tag">Valuation</span>
-            <span class="tag">Scenario analysis</span>
-          </div>
-        </article>
-
-        <article class="project-card mint">
-          <div>
-            <div class="project-kicker">Market Research</div>
-            <h3>Macro & Real Estate Investment Briefs</h3>
-            <p>Synthesized macro indicators, sector conditions, capital flows, and asset performance into short briefs for discussion and evaluation.</p>
-          </div>
-          <div class="tags">
-            <span class="tag">Macro research</span>
-            <span class="tag">Real estate</span>
-            <span class="tag">Brief writing</span>
+            <span class="tag">Static site</span>
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Custom domain</span>
           </div>
         </article>
       </div>
