@@ -7,7 +7,7 @@
   <meta property="og:title" content="Coco You">
   <meta property="og:description" content="Information Science @ Cornell. Data, product analytics, and web projects.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/profile-hd.png">
+  <meta property="og:image" content="assets/profile-clean.png">
   <title>Coco You</title>
   <style>
     :root {
@@ -178,7 +178,7 @@
     .about {
       max-width: 1260px;
       display: grid;
-      grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+      grid-template-columns: minmax(230px, 340px) minmax(0, 1fr);
       gap: clamp(36px, 6vw, 88px);
       align-items: center;
       margin: 0 auto;
@@ -186,11 +186,14 @@
 
     .portrait {
       width: 100%;
-      aspect-ratio: 1 / 1.15;
+      max-width: 340px;
+      justify-self: center;
+      aspect-ratio: 1 / 1.2;
       overflow: hidden;
-      border-radius: 36px;
+      border: 1px solid rgba(255, 250, 241, 0.22);
+      border-radius: 28px;
       background: var(--mint);
-      box-shadow: 0 22px 70px rgba(10, 18, 15, 0.25);
+      box-shadow: 0 18px 48px rgba(10, 18, 15, 0.22);
     }
 
     .portrait img {
@@ -743,7 +746,7 @@
 
       <div class="about">
         <div class="portrait">
-          <img src="assets/profile-hd.png" alt="Portrait of Coco You">
+          <img src="assets/profile-clean.png" alt="Portrait of Coco You">
         </div>
         <div>
           <h2>I'm Coco, an Information Science student building for data-driven product teams.</h2>
