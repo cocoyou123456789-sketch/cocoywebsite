@@ -313,15 +313,25 @@
     }
 
     .project-card {
-      min-height: 280px;
+      min-height: 470px;
       display: grid;
       align-content: space-between;
       gap: 22px;
-      padding: 24px;
+      padding: 18px;
       border: 1px solid rgba(35, 42, 48, 0.12);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.52);
       box-shadow: 0 18px 50px rgba(38, 53, 47, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 70px rgba(38, 53, 47, 0.13);
+    }
+
+    .project-content {
+      padding: 4px 6px 0;
     }
 
     .project-card.mint {
@@ -355,7 +365,7 @@
     .project-card h3 {
       margin: 8px 0 12px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 29px;
+      font-size: 27px;
       font-weight: 600;
       line-height: 1.12;
       letter-spacing: 0;
@@ -385,6 +395,217 @@
       color: #273831;
       font-size: 13px;
       font-weight: 750;
+    }
+
+    .project-visual {
+      min-height: 168px;
+      overflow: hidden;
+      border: 1px solid rgba(38, 53, 47, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.58);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+    }
+
+    .visual-top {
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 12px;
+      border-bottom: 1px solid rgba(38, 53, 47, 0.1);
+      background: rgba(255, 255, 255, 0.48);
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #d99aa7;
+    }
+
+    .dot:nth-child(2) {
+      background: #f0dea2;
+    }
+
+    .dot:nth-child(3) {
+      background: #9fcbb8;
+    }
+
+    .visual-body {
+      padding: 14px;
+    }
+
+    .visual-search {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 0 11px;
+      border-radius: 999px;
+      background: #fffaf1;
+      color: #66716b;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 10px;
+    }
+
+    .mini-panel {
+      min-height: 82px;
+      padding: 11px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(38, 53, 47, 0.09);
+    }
+
+    .mini-line {
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(38, 53, 47, 0.16);
+      margin-bottom: 8px;
+    }
+
+    .mini-line.short {
+      width: 58%;
+    }
+
+    .mini-chip-row,
+    .mini-status-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .mini-chip {
+      min-height: 22px;
+      padding: 0 8px;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: rgba(38, 53, 47, 0.08);
+      color: #3f4c46;
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .chart-bars {
+      height: 90px;
+      display: flex;
+      align-items: end;
+      gap: 7px;
+      padding-top: 8px;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 10px;
+      border-radius: 6px 6px 2px 2px;
+      background: #8eb9c7;
+    }
+
+    .bar:nth-child(2) {
+      height: 76%;
+      background: #d99aa7;
+    }
+
+    .bar:nth-child(3) {
+      height: 52%;
+      background: #9fcbb8;
+    }
+
+    .bar:nth-child(4) {
+      height: 88%;
+      background: #d5c4ed;
+    }
+
+    .phone-preview {
+      width: min(148px, 58%);
+      margin: 0 auto;
+      padding: 10px;
+      border-radius: 22px;
+      background: #26352f;
+      box-shadow: 0 14px 28px rgba(38, 53, 47, 0.18);
+    }
+
+    .phone-screen {
+      min-height: 150px;
+      padding: 12px;
+      border-radius: 16px;
+      background: #fffaf1;
+    }
+
+    .order-card {
+      padding: 9px;
+      border-radius: 8px;
+      background: #f0dea2;
+      margin-bottom: 9px;
+    }
+
+    .progress {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(38, 53, 47, 0.13);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 72%;
+      border-radius: inherit;
+      background: #d99aa7;
+    }
+
+    .site-preview-card {
+      padding: 18px;
+      min-height: 168px;
+      display: grid;
+      align-content: center;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(207, 232, 220, 0.72), transparent 46%),
+        linear-gradient(225deg, rgba(218, 205, 240, 0.72), transparent 46%),
+        #fffaf1;
+    }
+
+    .site-preview-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .site-preview-card span {
+      margin-top: 10px;
+      color: #5a6460;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .mini-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .mini-metric {
+      min-height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.58);
+      color: #34413b;
+      font-size: 11px;
+      font-weight: 850;
+      text-align: center;
     }
 
     .tags {
@@ -568,10 +789,35 @@
 
     <section class="section blush" id="projects">
       <h2>GitHub Projects</h2>
-      <p class="project-intro">Real projects from my GitHub, selected for big-tech internship applications: data products, frontend interaction, search/filter design, and clear product thinking.</p>
+      <p class="project-intro">Real GitHub projects selected for big-tech internship applications. Each card links to code or a live demo and highlights data products, frontend interaction, search/filter design, and product thinking.</p>
       <div class="project-grid">
         <article class="project-card mint">
-          <div>
+          <div class="project-visual" aria-hidden="true">
+            <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="visual-body">
+              <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
+              <div class="mini-grid">
+                <div class="mini-panel">
+                  <div class="mini-line"></div>
+                  <div class="mini-line short"></div>
+                  <div class="mini-chip-row">
+                    <span class="mini-chip">Materials</span>
+                    <span class="mini-chip">Figures</span>
+                    <span class="mini-chip">DOI</span>
+                  </div>
+                </div>
+                <div class="mini-panel">
+                  <div class="chart-bars">
+                    <span class="bar" style="height: 44%"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
             <div class="project-kicker">Data Product</div>
             <h3>ARPES Superconductivity Explorer</h3>
             <p>A static research data website and local Python extraction tool for organizing ARPES / superconductivity literature. It supports material, element, keyword, article, figure, and source exploration with bilingual UI and browser-local data handling.</p>
@@ -589,7 +835,27 @@
         </article>
 
         <article class="project-card sky">
-          <div>
+          <div class="project-visual" aria-hidden="true">
+            <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="visual-body">
+              <div class="phone-preview">
+                <div class="phone-screen">
+                  <div class="order-card">
+                    <div class="mini-line"></div>
+                    <div class="mini-line short"></div>
+                    <div class="progress"><span></span></div>
+                  </div>
+                  <div class="mini-status-row">
+                    <span class="mini-chip">4/6 joined</span>
+                    <span class="mini-chip">12 min</span>
+                  </div>
+                  <div class="mini-line" style="margin-top: 12px"></div>
+                  <div class="mini-line short"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
             <div class="project-kicker">Consumer Web Prototype</div>
             <h3>MealCrew Group Ordering</h3>
             <p>A static frontend prototype for group meal delivery in campus and city settings. It models active group orders, member thresholds, countdown deadlines, meal bundles, cart state, pickup points, and order progress.</p>
@@ -606,7 +872,18 @@
         </article>
 
         <article class="project-card blush-card">
-          <div>
+          <div class="project-visual" aria-hidden="true">
+            <div class="site-preview-card">
+              <strong>Coco You</strong>
+              <span>Recruiting portfolio</span>
+              <div class="mini-metrics">
+                <div class="mini-metric">Resume</div>
+                <div class="mini-metric">Projects</div>
+                <div class="mini-metric">Contact</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
             <div class="project-kicker">Portfolio System</div>
             <h3>Personal Website for Recruiting</h3>
             <p>A responsive personal website deployed with GitHub Pages and a custom domain. It presents projects, resume, experience, social links, and a recruiter-friendly narrative in one fast static page.</p>
