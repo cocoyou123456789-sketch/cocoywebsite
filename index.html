@@ -325,6 +325,124 @@
       gap: 20px;
     }
 
+    .project-timeline {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 64px;
+    }
+
+    .project-entry {
+      display: grid;
+      grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 58px);
+      padding-top: 38px;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-entry:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .project-time {
+      color: var(--muted);
+      font-size: 18px;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .project-time strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark);
+      font-size: 14px;
+      font-style: normal;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-case {
+      display: grid;
+      gap: 24px;
+    }
+
+    .project-case h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 650;
+      line-height: 0.98;
+      letter-spacing: 0;
+      color: #2f2028;
+    }
+
+    .project-subtitle {
+      margin: -12px 0 0;
+      color: #74636b;
+      font-size: clamp(21px, 2.2vw, 29px);
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .project-showcase {
+      width: min(100%, 720px);
+      justify-self: center;
+      margin: 10px 0 4px;
+    }
+
+    .project-case .project-visual {
+      min-height: 260px;
+      border-radius: 14px;
+      box-shadow: 0 22px 56px rgba(91, 52, 69, 0.12);
+    }
+
+    .project-case .site-preview-card {
+      min-height: 260px;
+    }
+
+    .project-copy {
+      margin: 0;
+      color: #30242b;
+      font-size: clamp(20px, 2.25vw, 28px);
+      line-height: 1.72;
+    }
+
+    .build-notes {
+      display: grid;
+      gap: 10px;
+      color: #30242b;
+      font-size: 19px;
+      line-height: 1.5;
+    }
+
+    .build-notes p {
+      margin: 0;
+    }
+
+    .build-notes strong {
+      font-weight: 850;
+    }
+
+    .project-link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .project-link-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid rgba(91, 52, 69, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 250, 252, 0.72);
+      color: #4b3040;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
     .project-card {
       min-height: 470px;
       display: grid;
@@ -705,10 +823,23 @@
 
       .about,
       .timeline-item,
+      .project-entry,
       .card-grid,
       .project-grid,
       .contact {
         grid-template-columns: 1fr;
+      }
+
+      .project-timeline {
+        gap: 52px;
+      }
+
+      .project-time {
+        font-size: 16px;
+      }
+
+      .project-case .project-visual {
+        min-height: 220px;
       }
 
       .portrait {
@@ -805,114 +936,132 @@
 
     <section class="section blush" id="projects">
       <h2>GitHub Projects</h2>
-      <p class="project-intro">Real GitHub projects selected for big-tech internship applications. Each card links to code or a live demo and highlights data products, frontend interaction, search/filter design, and product thinking.</p>
-      <div class="project-grid">
-        <article class="project-card mint">
-          <div class="project-visual" aria-hidden="true">
-            <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="visual-body">
-              <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
-              <div class="mini-grid">
-                <div class="mini-panel">
-                  <div class="mini-line"></div>
-                  <div class="mini-line short"></div>
-                  <div class="mini-chip-row">
-                    <span class="mini-chip">Materials</span>
-                    <span class="mini-chip">Figures</span>
-                    <span class="mini-chip">DOI</span>
-                  </div>
-                </div>
-                <div class="mini-panel">
-                  <div class="chart-bars">
-                    <span class="bar" style="height: 44%"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+      <p class="project-intro">Selected projects presented as a timeline, with the frontend and backend/data work separated so recruiters can quickly see the product surface and technical depth.</p>
+      <div class="project-timeline">
+        <article class="project-entry">
+          <div class="project-time">
+            <strong>Timeline</strong>
+            2026
+          </div>
+          <div class="project-case">
+            <div>
+              <h3>ARPES Superconductivity Explorer</h3>
+              <p class="project-subtitle">Research Data Product</p>
+            </div>
+            <div class="project-showcase">
+              <div class="project-visual" aria-hidden="true">
+                <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <div class="visual-body">
+                  <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
+                  <div class="mini-grid">
+                    <div class="mini-panel">
+                      <div class="mini-line"></div>
+                      <div class="mini-line short"></div>
+                      <div class="mini-chip-row">
+                        <span class="mini-chip">Materials</span>
+                        <span class="mini-chip">Figures</span>
+                        <span class="mini-chip">DOI</span>
+                      </div>
+                    </div>
+                    <div class="mini-panel">
+                      <div class="chart-bars">
+                        <span class="bar" style="height: 44%"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="project-content">
-            <div class="project-kicker">Data Product</div>
-            <h3>ARPES Superconductivity Explorer</h3>
-            <p>A static research data website and local Python extraction tool for organizing ARPES / superconductivity literature. It supports material, element, keyword, article, figure, and source exploration with bilingual UI and browser-local data handling.</p>
-            <div class="project-actions">
+            <p class="project-copy">Built a searchable research data website for organizing ARPES and superconductivity literature. The interface lets users explore materials, elements, keywords, articles, figures, and source records through a bilingual browser-local workflow.</p>
+            <div class="build-notes">
+              <p>Frontend: <strong>HTML, CSS, JavaScript, responsive search/filter UI</strong></p>
+              <p>Backend / Data: <strong>Python extraction scripts, JSON datasets, local data pipeline</strong></p>
+            </div>
+            <div class="project-link-row">
               <a href="https://cocoyou123456789-sketch.github.io/data/">Live site</a>
               <a href="https://github.com/cocoyou123456789-sketch/data">GitHub</a>
             </div>
           </div>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">Python</span>
-            <span class="tag">JSON data</span>
-            <span class="tag">Search UX</span>
-          </div>
         </article>
 
-        <article class="project-card sky">
-          <div class="project-visual" aria-hidden="true">
-            <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-            <div class="visual-body">
-              <div class="phone-preview">
-                <div class="phone-screen">
-                  <div class="order-card">
-                    <div class="mini-line"></div>
-                    <div class="mini-line short"></div>
-                    <div class="progress"><span></span></div>
+        <article class="project-entry">
+          <div class="project-time">
+            <strong>Timeline</strong>
+            2026
+          </div>
+          <div class="project-case">
+            <div>
+              <h3>MealCrew Group Ordering</h3>
+              <p class="project-subtitle">Consumer Web Prototype</p>
+            </div>
+            <div class="project-showcase">
+              <div class="project-visual" aria-hidden="true">
+                <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <div class="visual-body">
+                  <div class="phone-preview">
+                    <div class="phone-screen">
+                      <div class="order-card">
+                        <div class="mini-line"></div>
+                        <div class="mini-line short"></div>
+                        <div class="progress"><span></span></div>
+                      </div>
+                      <div class="mini-status-row">
+                        <span class="mini-chip">4/6 joined</span>
+                        <span class="mini-chip">12 min</span>
+                      </div>
+                      <div class="mini-line" style="margin-top: 12px"></div>
+                      <div class="mini-line short"></div>
+                    </div>
                   </div>
-                  <div class="mini-status-row">
-                    <span class="mini-chip">4/6 joined</span>
-                    <span class="mini-chip">12 min</span>
-                  </div>
-                  <div class="mini-line" style="margin-top: 12px"></div>
-                  <div class="mini-line short"></div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="project-content">
-            <div class="project-kicker">Consumer Web Prototype</div>
-            <h3>MealCrew Group Ordering</h3>
-            <p>A static frontend prototype for group meal delivery in campus and city settings. It models active group orders, member thresholds, countdown deadlines, meal bundles, cart state, pickup points, and order progress.</p>
-            <div class="project-actions">
+            <p class="project-copy">Designed a group meal ordering prototype for campus and city settings. The product flow models active group orders, member thresholds, countdown deadlines, meal bundles, cart state, pickup points, and order progress.</p>
+            <div class="build-notes">
+              <p>Frontend: <strong>HTML, CSS, JavaScript, cart state, countdown UI, mobile-first layout</strong></p>
+              <p>Backend / Data: <strong>Static data modeling, order-state logic, product-flow simulation</strong></p>
+            </div>
+            <div class="project-link-row">
               <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
             </div>
           </div>
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Product flow</span>
-          </div>
         </article>
 
-        <article class="project-card blush-card">
-          <div class="project-visual" aria-hidden="true">
-            <div class="site-preview-card">
-              <strong>Coco You</strong>
-              <span>Recruiting portfolio</span>
-              <div class="mini-metrics">
-                <div class="mini-metric">Resume</div>
-                <div class="mini-metric">Projects</div>
-                <div class="mini-metric">Contact</div>
+        <article class="project-entry">
+          <div class="project-time">
+            <strong>Timeline</strong>
+            2026 - Present
+          </div>
+          <div class="project-case">
+            <div>
+              <h3>Personal Website for Recruiting</h3>
+              <p class="project-subtitle">Portfolio System</p>
+            </div>
+            <div class="project-showcase">
+              <div class="project-visual" aria-hidden="true">
+                <div class="site-preview-card">
+                  <strong>Coco You</strong>
+                  <span>Recruiting portfolio</span>
+                  <div class="mini-metrics">
+                    <div class="mini-metric">Resume</div>
+                    <div class="mini-metric">Projects</div>
+                    <div class="mini-metric">Contact</div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-content">
-            <div class="project-kicker">Portfolio System</div>
-            <h3>Personal Website for Recruiting</h3>
-            <p>A responsive personal website deployed with GitHub Pages and a custom domain. It presents projects, resume, experience, social links, and a recruiter-friendly narrative in one fast static page.</p>
-            <div class="project-actions">
+            <p class="project-copy">Built and iterated a responsive personal website for recruiting. The site presents projects, resume, experience, social links, and a recruiter-friendly narrative in one fast static page with a custom domain.</p>
+            <div class="build-notes">
+              <p>Frontend: <strong>HTML, CSS, responsive portfolio layout, pastel visual system</strong></p>
+              <p>Backend / Hosting: <strong>GitHub Pages, custom domain, static deployment workflow</strong></p>
+            </div>
+            <div class="project-link-row">
               <a href="https://cocoylh.com">Live site</a>
               <a href="https://github.com/cocoyou123456789-sketch/cocoywebsite">GitHub</a>
             </div>
-          </div>
-          <div class="tags">
-            <span class="tag">Static site</span>
-            <span class="tag">GitHub Pages</span>
-            <span class="tag">Responsive UI</span>
-            <span class="tag">Custom domain</span>
           </div>
         </article>
       </div>
