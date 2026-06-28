@@ -263,6 +263,10 @@
       background: #ffeaf1;
     }
 
+    .section.portfolio-section {
+      background: var(--paper-3);
+    }
+
     .section h2 {
       margin: 0 0 46px;
       text-align: center;
@@ -272,6 +276,30 @@
       font-weight: 500;
       line-height: 1.05;
       letter-spacing: 0;
+    }
+
+    .creative-portfolio {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+      text-align: center;
+    }
+
+    .creative-portfolio p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #6f5864;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.65;
+    }
+
+    .portfolio-actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
 
     .timeline,
@@ -876,6 +904,7 @@
         <div class="button-row">
           <a class="button primary" href="assets/coco-you-resume.pdf">Resume</a>
           <a class="button" href="#projects">Projects</a>
+          <a class="button" href="#portfolio">Portfolio</a>
         </div>
       </div>
       <a class="arrow" href="#about" aria-label="Scroll to About"></a>
@@ -902,6 +931,7 @@
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="#portfolio">Portfolio</a>
           <a href="#skills">Skills</a>
         </div>
       </nav>
@@ -1083,6 +1113,17 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="portfolio">
+      <div class="creative-portfolio">
+        <h2>Portfolio</h2>
+        <p>In my free time, I like to take pictures and collect small visual stories from daily life, travel, food, and the places I spend time in.</p>
+        <div class="portfolio-actions">
+          <a class="button primary" href="assets/coco-you-portfolio.pdf">Open Portfolio</a>
+          <a class="button" href="assets/coco-you-portfolio.pdf" download>Download PDF</a>
+        </div>
       </div>
     </section>
 
