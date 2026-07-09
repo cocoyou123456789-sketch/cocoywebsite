@@ -1,0 +1,125 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[margin=0.34in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlength{\emergencystretch}{2em}
+\renewcommand{\familydefault}{\rmdefault}
+\AtBeginDocument{\fontsize{7.35}{7.9}\selectfont}
+
+\newcommand{\resumeHeader}[1]{
+  \begin{center}
+    {\fontsize{18.2}{19}\selectfont \bfseries #1}\\[-1pt]
+    {\fontsize{7.3}{7.8}\selectfont Ithaca, NY \,|\, \href{mailto:ly458@cornell.edu}{ly458@cornell.edu} \,|\, 205-787-0334 \,|\, \href{https://linkedin.com/in/cocoyou}{linkedin.com/in/cocoyou} \,|\, \href{https://github.com/cocoyou123456789-sketch}{github.com/cocoyou123456789-sketch} \,|\, \href{https://cocoylh.com}{cocoylh.com}}
+  \end{center}
+  \vspace{-8pt}
+}
+
+\newcommand{\resumesection}[1]{
+  \vspace{1.5pt}
+  \begin{tabularx}{\textwidth}{@{}l@{\hspace{8pt}}X@{}}
+    {\fontsize{10}{10.5}\selectfont\bfseries #1} & \raisebox{0.55ex}{\rule{\linewidth}{0.4pt}} \\
+  \end{tabularx}
+  \vspace{-2pt}
+}
+
+\newcommand{\entry}[4]{
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabularx}
+  \vspace{0pt}
+}
+
+\newenvironment{resumebullets}{
+  \begin{itemize}[leftmargin=8pt,itemsep=0pt,topsep=0pt,parsep=0pt,partopsep=0pt]
+}{
+  \end{itemize}\vspace{-1pt}
+}
+
+\begin{document}
+
+\resumeHeader{Coco (Luhan) You}
+
+\resumesection{Education}
+\entry{Cornell University}{Ithaca, NY}{B.S. in Information Science, Environment and Sustainability}{Expected May 2027}
+\textbf{Concentration:} Data Science \,|\, \textbf{Minor:} Business \,|\, \textbf{GPA:} 3.91/4.0\\
+\textbf{Relevant Coursework:} Python Programming, Statistics and Data Science, Linear Algebra, Financial Accounting, Microeconomics, Networks, Product Strategy, AI Law, Ethics \& Policy\\[-1pt]
+\textbf{Activities:} BCG Launch Program, Expedition EY Program, Claude Design Club, UX Design Club
+
+\resumesection{Technical Skills}
+\textbf{Languages:} Python, Java, R, JavaScript, HTML/CSS\\
+\textbf{Data / AI:} pandas, NumPy, rule-based NLP, AI modeling, dashboarding, JSON/CSV pipelines, literature extraction\\[-1pt]
+\textbf{Finance:} Financial modeling, valuation, credit research, fixed income, scenario analysis \,|\, \textbf{Tools:} Excel, GitHub, Microsoft Office, PitchBook, Canva
+
+\resumesection{Experience}
+\entry{China Merchants Securities}{China}{Investment Banking - Fixed Income Intern}{2026 -- Present}
+\begin{resumebullets}
+  \item Prepared issuer profiles, market comparables, and client-ready materials for fixed income transactions.
+  \item Analyzed credit fundamentals, bond market conditions, and transaction precedents for pitch books.
+  \item Organized offering highlights, risk factors, and market updates to support execution workstreams.
+\end{resumebullets}
+
+\entry{University of Science and Technology of China (USTC) / ARPES Lab}{Hefei, China}{AI Modeling Intern}{2026 -- Present}
+\begin{resumebullets}
+  \item Build AI modeling workflows for ARPES research linking materials, temperature features, and literature evidence.
+  \item Develop browser-facing model interfaces and structured outputs for experiment records and comparisons.
+  \item Translate research requirements into data schemas for material properties, ARPES notes, figures, and model inputs.
+\end{resumebullets}
+
+\entry{Venture Starters}{Remote}{Venture Capital Intern}{Dec 2025 -- Present}
+\begin{resumebullets}
+  \item Conduct due diligence on healthtech and biotech startups, translating market analysis into investment memos.
+  \item Evaluate competitive positioning, business model quality, and downside risks for screening decisions.
+  \item Synthesize founder, product, market, and financial findings into concise materials for senior review.
+\end{resumebullets}
+
+\entry{Tianjin Hotworld Technology Co., Ltd.}{Tianjin, China / Remote}{Business Analytics Intern}{Sep 2025 -- Dec 2025}
+\begin{resumebullets}
+  \item Built Excel models and dashboards across 10+ software firms to evaluate revenue, cash flow, and metrics.
+  \item Conducted market and competitor research to identify growth drivers, customer segments, and bottlenecks.
+  \item Presented quantitative and qualitative findings in structured briefs for leadership and business planning.
+\end{resumebullets}
+
+\entry{Rednote (Xiaohongshu)}{Remote}{Content Creator (Data \& Analytics)}{Sep 2023 -- Sep 2025}
+\begin{resumebullets}
+  \item Analyzed engagement patterns and tested content changes, driving 468\% engagement and 287\% impression growth.
+  \item Built recurring reporting around impressions, engagement, audience behavior, and conversion signals.
+  \item Converted data insights into repeatable experiments across format, timing, topic, and distribution.
+\end{resumebullets}
+
+\resumesection{Projects}
+\entry{Lake Shore 336 Temperature Control Dashboard}{2026}{GitHub: Debye-T3/LakeShore336 \,|\, Python, EPICS, serial control, browser dashboard}{}
+\begin{resumebullets}
+  \item Built an ARPES warmup dashboard with live readbacks, PID/heater controls, demo mode, bilingual UI, and CSV logging.
+  \item Implemented EPICS IOC records and serial control for cold-head/sample readings and stepwise warmup.
+  \item Designed safety-aware setpoint limits, ramp rates, heater ranges, communication status, and operator warnings.
+\end{resumebullets}
+
+\entry{ARPES Superconductivity Explorer}{2026}{GitHub: cocoyou123456789-sketch/data \,|\, Python, JavaScript, literature extraction, research data UI}{}
+\begin{resumebullets}
+  \item Created a research data site and extractor for ARPES literature with material search and figure comparison.
+  \item Designed JSON/CSV pipelines for Web of Science, Google Scholar BibTeX, OpenAlex, arXiv, and Crossref.
+  \item Added bilingual workflows for literature import, material comparison, HDF5 notes, and report generation.
+\end{resumebullets}
+
+\entry{Personal Website}{2026}{HTML/CSS, GitHub Pages, responsive design}{cocoylh.com}
+\begin{resumebullets}
+  \item Deployed a recruiter-facing portfolio with selected projects, resume, experience, and GitHub links.
+  \item Built responsive sections for project cards, experience timeline, skills, contact links, and resume access.
+  \item Maintained a lightweight GitHub Pages workflow for quick project and resume updates.
+\end{resumebullets}
+
+\resumesection{Leadership \& Research}
+\textbf{Cornell Wall Street Club:} VP of Education and Mentorship; lead valuation, accounting, and capital markets training for 50+ students.
+\textbf{Cornell Current Club:} Analyst covering macro indicators and sector-level investment views.
+\textbf{Tianjin Agricultural University:} Co-authored peer-reviewed \textit{Fish Physiology and Biochemistry} research; supported data analysis and manuscript development.
+
+\end{document}

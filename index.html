@@ -32,11 +32,15 @@
     }
 
     html {
+      max-width: 100%;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
+      max-width: 100%;
+      overflow-x: hidden;
       background: var(--paper);
       color: var(--ink);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -312,10 +316,11 @@
 
     .experience-section {
       background: #f3f3f3;
+      padding-top: 48px;
     }
 
     .experience-section h2 {
-      margin-bottom: 64px;
+      margin-bottom: 54px;
       color: #1f2024;
     }
 
@@ -323,8 +328,9 @@
       position: relative;
       display: grid;
       grid-template-columns: minmax(0, 1fr) 92px minmax(0, 1fr);
-      gap: 82px;
-      max-width: 1360px;
+      row-gap: 110px;
+      column-gap: 72px;
+      max-width: 1220px;
       padding: 0 0 16px;
     }
 
@@ -334,7 +340,7 @@
       top: 0;
       bottom: 0;
       left: 50%;
-      width: 4px;
+      width: 3px;
       border-radius: 999px;
       background: #18191c;
       transform: translateX(-50%);
@@ -342,16 +348,17 @@
 
     .experience-card {
       position: relative;
-      width: 100%;
-      min-height: 330px;
+      width: calc(50% - 54px);
+      max-width: 520px;
+      min-height: 340px;
       display: grid;
       align-content: space-between;
-      gap: 26px;
-      padding: 36px 38px 32px;
+      gap: 22px;
+      padding: 32px 32px 28px;
       border: 1px solid rgba(30, 31, 35, 0.06);
       border-radius: 8px;
       background: #ffffff;
-      box-shadow: 0 16px 34px rgba(26, 27, 31, 0.14);
+      box-shadow: 0 16px 36px rgba(26, 27, 31, 0.12);
       color: #25262a;
     }
 
@@ -359,8 +366,8 @@
       content: "";
       position: absolute;
       top: 50%;
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #18191c;
       transform: translateY(-50%);
@@ -368,42 +375,42 @@
     }
 
     .experience-card.left {
-      grid-column: 1;
+      grid-column: 1 / -1;
       justify-self: start;
       text-align: right;
     }
 
     .experience-card.left::after {
-      right: -57px;
+      right: -65px;
     }
 
     .experience-card.right {
-      grid-column: 3;
+      grid-column: 1 / -1;
       justify-self: end;
       text-align: left;
     }
 
     .experience-card.right::after {
-      left: -57px;
+      left: -65px;
     }
 
     .experience-head {
       display: grid;
-      grid-template-columns: 74px 1fr;
-      gap: 22px;
+      grid-template-columns: 58px 1fr;
+      gap: 18px;
       align-items: start;
     }
 
     .experience-logo {
-      width: 56px;
-      height: 56px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
       border: 2px solid #dfe3e7;
       border-radius: 12px;
       background: #fff;
       color: #5b3445;
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 900;
       line-height: 1;
       text-align: center;
@@ -411,7 +418,7 @@
 
     .experience-logo.mark-ring {
       color: #111;
-      font-size: 24px;
+      font-size: 20px;
     }
 
     .experience-logo.mark-blue {
@@ -423,9 +430,9 @@
     }
 
     .experience-title h3 {
-      margin: 0 0 10px;
+      margin: 0 0 8px;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 2.1vw, 35px);
+      font-size: clamp(22px, 1.75vw, 29px);
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: 0;
@@ -433,7 +440,7 @@
 
     .experience-title strong {
       color: #737a83;
-      font-size: 20px;
+      font-size: 15px;
       line-height: 1.22;
     }
 
@@ -443,7 +450,7 @@
       justify-content: space-between;
       gap: 18px;
       color: #88898d;
-      font-size: 17px;
+      font-size: 14px;
       font-style: italic;
       font-weight: 700;
     }
@@ -455,8 +462,8 @@
     .experience-date {
       display: inline-flex;
       align-items: center;
-      min-height: 40px;
-      padding: 0 18px;
+      min-height: 32px;
+      padding: 0 14px;
       border-radius: 999px;
       background: #f1f1f1;
       color: #8b8c90;
@@ -466,11 +473,11 @@
     }
 
     .experience-copy {
-      max-width: 460px;
+      max-width: 430px;
       margin: 0;
       color: #27282c;
-      font-size: 18px;
-      line-height: 1.65;
+      font-size: 14.5px;
+      line-height: 1.72;
     }
 
     .experience-card.left .experience-copy {
@@ -480,7 +487,7 @@
     .experience-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
     }
 
     .experience-card.left .experience-tags {
@@ -491,14 +498,140 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
-      padding: 0 16px;
+      min-height: 32px;
+      padding: 0 13px;
       border: 1px solid #dfe3e7;
       border-radius: 999px;
       background: #fbfcfd;
       color: #727a83;
-      font-size: 15px;
+      font-size: 12.5px;
       font-weight: 800;
+    }
+
+    .js-enabled .experience-timeline::before {
+      transform: translateX(-50%) scaleY(0);
+      transform-origin: top center;
+      transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-enabled .experience-section.is-visible .experience-timeline::before {
+      transform: translateX(-50%) scaleY(1);
+    }
+
+    .js-enabled .experience-card {
+      opacity: 0;
+      transition:
+        opacity 700ms ease,
+        transform 850ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .js-enabled .experience-card.left {
+      transform: translateX(-36px);
+    }
+
+    .js-enabled .experience-card.right {
+      transform: translateX(36px);
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .js-enabled .experience-card::after {
+      opacity: 0;
+      transform: translateY(-50%) scale(0.45);
+      transition:
+        opacity 420ms ease,
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card::after {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    .js-enabled .experience-tag {
+      opacity: 0;
+      transform: translateY(8px);
+      transition:
+        opacity 420ms ease,
+        transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .js-enabled .experience-section.is-visible .experience-tag {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js-enabled .experience-card:nth-child(1),
+    .js-enabled .experience-card:nth-child(1)::after {
+      transition-delay: 80ms;
+    }
+
+    .js-enabled .experience-card:nth-child(2),
+    .js-enabled .experience-card:nth-child(2)::after {
+      transition-delay: 220ms;
+    }
+
+    .js-enabled .experience-card:nth-child(3),
+    .js-enabled .experience-card:nth-child(3)::after {
+      transition-delay: 360ms;
+    }
+
+    .js-enabled .experience-card:nth-child(4),
+    .js-enabled .experience-card:nth-child(4)::after {
+      transition-delay: 500ms;
+    }
+
+    .js-enabled .experience-card:nth-child(5),
+    .js-enabled .experience-card:nth-child(5)::after {
+      transition-delay: 640ms;
+    }
+
+    .js-enabled .experience-card:nth-child(6),
+    .js-enabled .experience-card:nth-child(6)::after {
+      transition-delay: 780ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(1) .experience-tag {
+      transition-delay: 300ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(2) .experience-tag {
+      transition-delay: 440ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(3) .experience-tag {
+      transition-delay: 580ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(4) .experience-tag {
+      transition-delay: 720ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(5) .experience-tag {
+      transition-delay: 860ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(6) .experience-tag {
+      transition-delay: 1000ms;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js-enabled .experience-timeline::before,
+      .js-enabled .experience-card,
+      .js-enabled .experience-card::after,
+      .js-enabled .experience-tag {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .js-enabled .experience-card::after {
+        transform: translateY(-50%);
+      }
     }
 
     .card-grid {
@@ -517,7 +650,7 @@
 
     .project-intro {
       max-width: 820px;
-      margin: -22px auto 42px;
+      margin: -28px auto 34px;
       color: #6f5864;
       font-size: 18px;
       line-height: 1.7;
@@ -525,9 +658,11 @@
     }
 
     .project-grid {
+      max-width: 1560px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 22px;
+      align-items: stretch;
     }
 
     .project-timeline {
@@ -649,15 +784,15 @@
     }
 
     .project-card {
-      min-height: 470px;
-      display: grid;
-      align-content: space-between;
-      gap: 22px;
-      padding: 18px;
-      border: 1px solid rgba(91, 52, 69, 0.12);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid rgba(91, 52, 69, 0.13);
       border-radius: 8px;
-      background: rgba(255, 250, 252, 0.66);
-      box-shadow: 0 18px 50px rgba(91, 52, 69, 0.08);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 16px 42px rgba(91, 52, 69, 0.08);
       transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
@@ -667,7 +802,8 @@
     }
 
     .project-content {
-      padding: 4px 6px 0;
+      display: grid;
+      gap: 3px;
     }
 
     .project-card.mint {
@@ -699,18 +835,67 @@
     }
 
     .project-card h3 {
-      margin: 8px 0 12px;
+      margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 27px;
-      font-weight: 600;
-      line-height: 1.12;
+      font-size: clamp(26px, 2.2vw, 34px);
+      font-weight: 650;
+      line-height: 1.04;
       letter-spacing: 0;
+      color: #2f2028;
     }
 
     .project-card p {
       margin: 0;
       color: #674f5a;
       line-height: 1.62;
+    }
+
+    .project-card .project-subtitle {
+      margin: 0;
+      color: #74636b;
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.25;
+    }
+
+    .project-date {
+      color: #806b75;
+      font-size: 12.5px;
+      font-style: italic;
+      font-weight: 650;
+    }
+
+    .project-card .project-showcase {
+      width: 100%;
+      margin: 4px 0 2px;
+      justify-self: stretch;
+    }
+
+    .project-card .project-visual {
+      min-height: 152px;
+      border-radius: 8px;
+      box-shadow: none;
+    }
+
+    .project-card .site-preview-card {
+      min-height: 152px;
+    }
+
+    .project-card .project-copy {
+      color: #30242b;
+      font-size: 13.5px;
+      line-height: 1.62;
+    }
+
+    .project-card .build-notes {
+      gap: 7px;
+      color: #30242b;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .project-card .project-link-row {
+      margin-top: auto;
     }
 
     .project-actions {
@@ -771,6 +956,10 @@
       padding: 14px;
     }
 
+    .project-card .visual-body {
+      padding: 10px;
+    }
+
     .visual-search {
       height: 30px;
       display: flex;
@@ -782,6 +971,12 @@
       font-size: 12px;
       font-weight: 700;
       margin-bottom: 12px;
+    }
+
+    .project-card .visual-search {
+      height: 24px;
+      margin-bottom: 9px;
+      font-size: 10.5px;
     }
 
     .mini-grid {
@@ -796,6 +991,11 @@
       border-radius: 8px;
       background: rgba(255, 250, 252, 0.72);
       border: 1px solid rgba(91, 52, 69, 0.09);
+    }
+
+    .project-card .mini-panel {
+      min-height: 62px;
+      padding: 9px;
     }
 
     .mini-line {
@@ -837,6 +1037,10 @@
       padding-top: 8px;
     }
 
+    .project-card .chart-bars {
+      height: 64px;
+    }
+
     .bar {
       flex: 1;
       min-width: 10px;
@@ -868,11 +1072,23 @@
       box-shadow: 0 14px 28px rgba(91, 52, 69, 0.2);
     }
 
+    .project-card .phone-preview {
+      width: min(116px, 50%);
+      padding: 8px;
+      border-radius: 18px;
+    }
+
     .phone-screen {
       min-height: 150px;
       padding: 12px;
       border-radius: 16px;
       background: #fff9fb;
+    }
+
+    .project-card .phone-screen {
+      min-height: 104px;
+      padding: 9px;
+      border-radius: 13px;
     }
 
     .order-card {
@@ -907,7 +1123,11 @@
       background:
         linear-gradient(135deg, rgba(248, 205, 218, 0.72), transparent 46%),
         linear-gradient(225deg, rgba(234, 220, 245, 0.72), transparent 46%),
-        #fff9fb;
+      #fff9fb;
+    }
+
+    .project-card .site-preview-card {
+      padding: 14px;
     }
 
     .site-preview-card strong {
@@ -916,6 +1136,10 @@
       font-style: italic;
       font-weight: 500;
       line-height: 1;
+    }
+
+    .project-card .site-preview-card strong {
+      font-size: 28px;
     }
 
     .site-preview-card span {
@@ -1049,10 +1273,20 @@
         transform: none;
       }
 
+      .js-enabled .experience-timeline::before {
+        transform: scaleY(0);
+      }
+
+      .js-enabled .experience-section.is-visible .experience-timeline::before {
+        transform: scaleY(1);
+      }
+
       .experience-card,
       .experience-card.left,
       .experience-card.right {
         grid-column: 1;
+        width: 100%;
+        max-width: none;
         min-height: auto;
         padding: 24px 22px;
         text-align: left;
@@ -1077,6 +1311,15 @@
 
       .experience-card.left .experience-tags {
         justify-content: flex-start;
+      }
+
+      .js-enabled .experience-card.left,
+      .js-enabled .experience-card.right {
+        transform: translateY(24px);
+      }
+
+      .js-enabled .experience-section.is-visible .experience-card {
+        transform: translateY(0);
       }
 
       .experience-head {
@@ -1310,135 +1553,121 @@
     </section>
 
     <section class="section blush" id="projects">
-      <h2>GitHub Projects</h2>
-      <p class="project-intro">Selected projects presented as a timeline, with the frontend and backend/data work separated so recruiters can quickly see the product surface and technical depth.</p>
-      <div class="project-timeline">
-        <article class="project-entry">
-          <div class="project-time">
-            <strong>Timeline</strong>
-            2026
+      <h2>Projects</h2>
+      <p class="project-intro">Selected projects with the product surface, technical stack, and links visible at a glance.</p>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-content">
+            <h3>ARPES Explorer</h3>
+            <p class="project-subtitle">Research Data Product</p>
+            <p class="project-date">2026</p>
           </div>
-          <div class="project-case">
-            <div>
-              <h3>ARPES Superconductivity Explorer</h3>
-              <p class="project-subtitle">Research Data Product</p>
+          <div class="project-showcase">
+            <div class="project-visual" aria-hidden="true">
+              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="visual-body">
+                <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
+                <div class="mini-grid">
+                  <div class="mini-panel">
+                    <div class="mini-line"></div>
+                    <div class="mini-line short"></div>
+                    <div class="mini-chip-row">
+                      <span class="mini-chip">Materials</span>
+                      <span class="mini-chip">Figures</span>
+                      <span class="mini-chip">DOI</span>
+                    </div>
+                  </div>
+                  <div class="mini-panel">
+                    <div class="chart-bars">
+                      <span class="bar" style="height: 44%"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="project-showcase">
-              <div class="project-visual" aria-hidden="true">
-                <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="visual-body">
-                  <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
-                  <div class="mini-grid">
-                    <div class="mini-panel">
+          </div>
+          <p class="project-copy">Searchable research site for ARPES and superconductivity literature, with materials, figures, keywords, and source records in one browser workflow.</p>
+          <div class="build-notes">
+            <p>Frontend: <strong>HTML, CSS, JavaScript</strong></p>
+            <p>Data: <strong>Python extraction scripts, JSON datasets</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="https://cocoyou123456789-sketch.github.io/data/">Live site</a>
+            <a href="https://github.com/cocoyou123456789-sketch/data">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3>Cornell HAMA</h3>
+            <p class="project-subtitle">Student Organization Website</p>
+            <p class="project-date">2026</p>
+          </div>
+          <div class="project-showcase">
+            <div class="project-visual" aria-hidden="true">
+              <div class="site-preview-card">
+                <strong>Cornell HAMA</strong>
+                <span>Hospitality asset management</span>
+                <div class="mini-metrics">
+                  <div class="mini-metric">People</div>
+                  <div class="mini-metric">Events</div>
+                  <div class="mini-metric">Alumni</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="project-copy">Cornell HAMA site for the chapter mission, people, events, alumni network, employers, and member-facing resources.</p>
+          <div class="build-notes">
+            <p>Frontend: <strong>HTML, CSS, JavaScript</strong></p>
+            <p>Hosting: <strong>GitHub Pages, custom domain</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="https://cornellhama.com">Live site</a>
+            <a href="https://github.com/cocoyou123456789-sketch/cornell-HAMA-website">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3>MealCrew</h3>
+            <p class="project-subtitle">Consumer Web Prototype</p>
+            <p class="project-date">2026</p>
+          </div>
+          <div class="project-showcase">
+            <div class="project-visual" aria-hidden="true">
+              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="visual-body">
+                <div class="phone-preview">
+                  <div class="phone-screen">
+                    <div class="order-card">
                       <div class="mini-line"></div>
                       <div class="mini-line short"></div>
-                      <div class="mini-chip-row">
-                        <span class="mini-chip">Materials</span>
-                        <span class="mini-chip">Figures</span>
-                        <span class="mini-chip">DOI</span>
-                      </div>
+                      <div class="progress"><span></span></div>
                     </div>
-                    <div class="mini-panel">
-                      <div class="chart-bars">
-                        <span class="bar" style="height: 44%"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                      </div>
+                    <div class="mini-status-row">
+                      <span class="mini-chip">4/6 joined</span>
+                      <span class="mini-chip">12 min</span>
                     </div>
+                    <div class="mini-line" style="margin-top: 12px"></div>
+                    <div class="mini-line short"></div>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="project-copy">Built a searchable research data website for organizing ARPES and superconductivity literature. The interface lets users explore materials, elements, keywords, articles, figures, and source records through a bilingual browser-local workflow.</p>
-            <div class="build-notes">
-              <p>Frontend: <strong>HTML, CSS, JavaScript, responsive search/filter UI</strong></p>
-              <p>Backend / Data: <strong>Python extraction scripts, JSON datasets, local data pipeline</strong></p>
-            </div>
-            <div class="project-link-row">
-              <a href="https://cocoyou123456789-sketch.github.io/data/">Live site</a>
-              <a href="https://github.com/cocoyou123456789-sketch/data">GitHub</a>
-            </div>
+          </div>
+          <p class="project-copy">Group meal ordering prototype with active orders, member thresholds, countdown deadlines, cart state, pickup points, and order progress.</p>
+          <div class="build-notes">
+            <p>Frontend: <strong>HTML, CSS, JavaScript</strong></p>
+            <p>Product: <strong>Cart state, countdown UI, flow simulation</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
           </div>
         </article>
 
-        <article class="project-entry">
-          <div class="project-time">
-            <strong>Timeline</strong>
-            2026
-          </div>
-          <div class="project-case">
-            <div>
-              <h3>MealCrew Group Ordering</h3>
-              <p class="project-subtitle">Consumer Web Prototype</p>
-            </div>
-            <div class="project-showcase">
-              <div class="project-visual" aria-hidden="true">
-                <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-                <div class="visual-body">
-                  <div class="phone-preview">
-                    <div class="phone-screen">
-                      <div class="order-card">
-                        <div class="mini-line"></div>
-                        <div class="mini-line short"></div>
-                        <div class="progress"><span></span></div>
-                      </div>
-                      <div class="mini-status-row">
-                        <span class="mini-chip">4/6 joined</span>
-                        <span class="mini-chip">12 min</span>
-                      </div>
-                      <div class="mini-line" style="margin-top: 12px"></div>
-                      <div class="mini-line short"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="project-copy">Designed a group meal ordering prototype for campus and city settings. The product flow models active group orders, member thresholds, countdown deadlines, meal bundles, cart state, pickup points, and order progress.</p>
-            <div class="build-notes">
-              <p>Frontend: <strong>HTML, CSS, JavaScript, cart state, countdown UI, mobile-first layout</strong></p>
-              <p>Backend / Data: <strong>Static data modeling, order-state logic, product-flow simulation</strong></p>
-            </div>
-            <div class="project-link-row">
-              <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="project-entry">
-          <div class="project-time">
-            <strong>Timeline</strong>
-            2026 - Present
-          </div>
-          <div class="project-case">
-            <div>
-              <h3>Personal Website for Recruiting</h3>
-              <p class="project-subtitle">Portfolio System</p>
-            </div>
-            <div class="project-showcase">
-              <div class="project-visual" aria-hidden="true">
-                <div class="site-preview-card">
-                  <strong>Coco You</strong>
-                  <span>Recruiting portfolio</span>
-                  <div class="mini-metrics">
-                    <div class="mini-metric">Resume</div>
-                    <div class="mini-metric">Projects</div>
-                    <div class="mini-metric">Contact</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="project-copy">Built and iterated a responsive personal website for recruiting. The site presents projects, resume, experience, social links, and a recruiter-friendly narrative in one fast static page with a custom domain.</p>
-            <div class="build-notes">
-              <p>Frontend: <strong>HTML, CSS, responsive portfolio layout, pastel visual system</strong></p>
-              <p>Backend / Hosting: <strong>GitHub Pages, custom domain, static deployment workflow</strong></p>
-            </div>
-            <div class="project-link-row">
-              <a href="https://cocoylh.com">Live site</a>
-              <a href="https://github.com/cocoyou123456789-sketch/cocoywebsite">GitHub</a>
-            </div>
-          </div>
-        </article>
       </div>
     </section>
 
@@ -1487,5 +1716,29 @@
   <footer>
     cocoylh.com - Coco You
   </footer>
+  <script>
+    document.documentElement.classList.add("js-enabled");
+
+    const experienceSection = document.querySelector(".experience-section");
+    if (experienceSection) {
+      if ("IntersectionObserver" in window) {
+        const experienceObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              experienceSection.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.01,
+          rootMargin: "0px 0px -18% 0px"
+        });
+
+        experienceObserver.observe(experienceSection);
+      } else {
+        experienceSection.classList.add("is-visible");
+      }
+    }
+  </script>
 </body>
 </html>
