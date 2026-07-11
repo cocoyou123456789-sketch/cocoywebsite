@@ -826,6 +826,35 @@
       background: linear-gradient(180deg, rgba(255, 227, 236, 0.86), rgba(255, 250, 252, 0.62));
     }
 
+    .project-card.leetcode-card {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: min(100%, 1000px);
+      background: linear-gradient(180deg, rgba(220, 238, 232, 0.92), rgba(255, 250, 252, 0.72));
+    }
+
+    .project-card .site-preview-card.leetcode-preview {
+      background: #151e1b;
+      color: #e3eee9;
+    }
+
+    .project-card .site-preview-card.leetcode-preview strong {
+      color: #e3eee9;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-style: normal;
+      font-weight: 750;
+    }
+
+    .project-card .site-preview-card.leetcode-preview span {
+      color: #a9bbb5;
+    }
+
+    .project-card .leetcode-preview .mini-metric {
+      border: 1px solid #33423d;
+      background: #24312d;
+      color: #8ee3c8;
+    }
+
     .project-kicker {
       color: #8c6d7b;
       font-size: 13px;
@@ -1665,6 +1694,36 @@
           </div>
           <div class="project-link-row">
             <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card leetcode-card">
+          <div class="project-content">
+            <h3>LeetCode Hot 100 Notebook</h3>
+            <p class="project-subtitle">Interactive Learning &amp; Coding Tool</p>
+            <p class="project-date">2026</p>
+          </div>
+          <div class="project-showcase">
+            <div class="project-visual" aria-hidden="true">
+              <div class="site-preview-card leetcode-preview">
+                <strong>题解簿 · Hot 100</strong>
+                <span>Code · explain every line · run Python tests</span>
+                <div class="mini-metrics">
+                  <div class="mini-metric">100 Problems</div>
+                  <div class="mini-metric">Line Notes</div>
+                  <div class="mini-metric">Python Tests</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="project-copy">Beginner-friendly workspace for solving the Hot 100, writing Python beside each prompt, explaining code line by line, keeping review notes, and checking solutions with in-browser tests.</p>
+          <div class="build-notes">
+            <p>Frontend: <strong>React, TypeScript, responsive CSS</strong></p>
+            <p>Runtime: <strong>Pyodide, Web Worker, local browser storage</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="https://cocoyou123456789-sketch.github.io/coding-helper/">Live site</a>
+            <a href="https://github.com/cocoyou123456789-sketch/coding-helper">GitHub</a>
           </div>
         </article>
 
