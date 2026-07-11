@@ -855,6 +855,36 @@
       color: #8ee3c8;
     }
 
+    .ls336-preview .mini-panel {
+      background: #102733;
+      border-color: rgba(38, 230, 255, 0.18);
+    }
+
+    .ls336-preview .mini-line {
+      background: rgba(207, 233, 239, 0.2);
+    }
+
+    .ls336-preview .mini-chip {
+      background: rgba(38, 230, 255, 0.12);
+      color: #26e6ff;
+    }
+
+    .ls336-preview .bar {
+      background: #26e6ff;
+    }
+
+    .ls336-preview .bar:nth-child(2) {
+      background: #ff8fb1;
+    }
+
+    .ls336-preview .bar:nth-child(3) {
+      background: #6ed7ff;
+    }
+
+    .ls336-preview .bar:nth-child(4) {
+      background: #ffc4d4;
+    }
+
     .project-kicker {
       color: #8c6d7b;
       font-size: 13px;
@@ -1626,6 +1656,49 @@
           <div class="project-link-row">
             <a href="https://cocoyou123456789-sketch.github.io/data/">Live site</a>
             <a href="https://github.com/cocoyou123456789-sketch/data">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3>LakeShore336</h3>
+            <p class="project-subtitle">ARPES Temperature Control Dashboard</p>
+            <p class="project-date">2026</p>
+          </div>
+          <div class="project-showcase">
+            <div class="project-visual ls336-preview" aria-hidden="true">
+              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="visual-body">
+                <div class="visual-search">Lake Shore 336 · Temp (K) · CSV logging</div>
+                <div class="mini-grid">
+                  <div class="mini-panel">
+                    <div class="mini-line"></div>
+                    <div class="mini-line short"></div>
+                    <div class="mini-chip-row">
+                      <span class="mini-chip">Cold Head</span>
+                      <span class="mini-chip">Sample</span>
+                      <span class="mini-chip">PID</span>
+                    </div>
+                  </div>
+                  <div class="mini-panel">
+                    <div class="chart-bars">
+                      <span class="bar" style="height: 62%"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="project-copy">Browser dashboard and EPICS IOC for Lake Shore 336 temperature control, with live channel readbacks, ramp/setpoint controls, safety limits, bilingual UI, and CSV logging.</p>
+          <div class="build-notes">
+            <p>Frontend: <strong>HTML, CSS, JavaScript, Canvas charts</strong></p>
+            <p>Control: <strong>Python serial dashboard, EPICS IOC, StreamDevice</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="https://github.com/Debye-T3/LakeShore336">GitHub</a>
           </div>
         </article>
 
