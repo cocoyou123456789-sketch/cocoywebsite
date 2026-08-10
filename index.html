@@ -595,6 +595,11 @@
       transition-delay: 780ms;
     }
 
+    .js-enabled .experience-card:nth-child(7),
+    .js-enabled .experience-card:nth-child(7)::after {
+      transition-delay: 920ms;
+    }
+
     .js-enabled .experience-section.is-visible .experience-card:nth-child(1) .experience-tag {
       transition-delay: 300ms;
     }
@@ -617,6 +622,10 @@
 
     .js-enabled .experience-section.is-visible .experience-card:nth-child(6) .experience-tag {
       transition-delay: 1000ms;
+    }
+
+    .js-enabled .experience-section.is-visible .experience-card:nth-child(7) .experience-tag {
+      transition-delay: 1140ms;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1482,6 +1491,27 @@
       <div class="experience-timeline">
         <article class="experience-card left">
           <div class="experience-head">
+            <div class="experience-logo mark-red">CU</div>
+            <div class="experience-title">
+              <h3>Research Assistant</h3>
+              <strong>Cornell University | Gao Lab</strong>
+            </div>
+          </div>
+          <div class="experience-meta">
+            <span class="experience-date">Jul 2026 - Present</span>
+            <span>Ithaca, NY</span>
+          </div>
+          <p class="experience-copy">Research constraint-aware LLM reasoning and build RAG and AI agent workflows for retrievable, executable, and verifiable question answering across open-domain knowledge, professional documents, and structured datasets.</p>
+          <div class="experience-tags" aria-label="Cornell Gao Lab research skills">
+            <span class="experience-tag">LLM Reasoning</span>
+            <span class="experience-tag">RAG</span>
+            <span class="experience-tag">AI Agents</span>
+            <span class="experience-tag">Text-to-SQL</span>
+          </div>
+        </article>
+
+        <article class="experience-card right">
+          <div class="experience-head">
             <div class="experience-logo mark-blue">USTC</div>
             <div class="experience-title">
               <h3>AI Modeling Intern</h3>
@@ -1501,7 +1531,7 @@
           </div>
         </article>
 
-        <article class="experience-card right">
+        <article class="experience-card left">
           <div class="experience-head">
             <div class="experience-logo mark-red">CMS</div>
             <div class="experience-title">
@@ -1522,7 +1552,7 @@
           </div>
         </article>
 
-        <article class="experience-card left">
+        <article class="experience-card right">
           <div class="experience-head">
             <div class="experience-logo">VS</div>
             <div class="experience-title">
@@ -1543,7 +1573,7 @@
           </div>
         </article>
 
-        <article class="experience-card right">
+        <article class="experience-card left">
           <div class="experience-head">
             <div class="experience-logo">HT</div>
             <div class="experience-title">
@@ -1564,7 +1594,7 @@
           </div>
         </article>
 
-        <article class="experience-card left">
+        <article class="experience-card right">
           <div class="experience-head">
             <div class="experience-logo mark-red">RED</div>
             <div class="experience-title">
@@ -1585,7 +1615,7 @@
           </div>
         </article>
 
-        <article class="experience-card right">
+        <article class="experience-card left">
           <div class="experience-head">
             <div class="experience-logo mark-ring">◎</div>
             <div class="experience-title">
