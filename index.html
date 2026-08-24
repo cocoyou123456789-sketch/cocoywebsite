@@ -861,6 +861,27 @@
       color: #8ee3c8;
     }
 
+    .project-card.savebite-card {
+      background: linear-gradient(180deg, rgba(220, 243, 228, 0.96), rgba(255, 255, 255, 0.82));
+    }
+
+    .project-card .site-preview-card.savebite-preview {
+      background: #dff4e6;
+      color: #111;
+    }
+
+    .project-card .site-preview-card.savebite-preview strong {
+      color: #087943;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-style: normal;
+      font-weight: 850;
+    }
+
+    .project-card .savebite-preview .mini-metric {
+      background: #111;
+      color: #fff;
+    }
+
     .ls336-preview .mini-panel {
       background: #102733;
       border-color: rgba(38, 230, 255, 0.18);
@@ -1642,6 +1663,36 @@
       <h2>Projects</h2>
       <p class="project-intro">Selected projects with the product surface, technical stack, and links visible at a glance.</p>
       <div class="project-grid">
+        <article class="project-card savebite-card">
+          <div class="project-content">
+            <h3>Save a Bite</h3>
+            <p class="project-subtitle">Behavioral Savings &amp; Food Discovery Prototype</p>
+            <p class="project-date">2026</p>
+          </div>
+          <div class="project-showcase">
+            <div class="project-visual" aria-hidden="true">
+              <div class="site-preview-card savebite-preview">
+                <strong>Save a Bite</strong>
+                <span>Real food. Zero delivery. Money saved.</span>
+                <div class="mini-metrics">
+                  <div class="mini-metric">5 currencies</div>
+                  <div class="mini-metric">Calories</div>
+                  <div class="mini-metric">EN / 中文</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="project-copy">A takeout-style experience that lets users browse realistic meals, skip the purchase, and redirect the same amount toward a personal peace-of-mind fund.</p>
+          <div class="build-notes">
+            <p>Product: <strong>Behavior design, local savings history, nutrition estimates</strong></p>
+            <p>Frontend: <strong>React, TypeScript, responsive multilingual UI</strong></p>
+          </div>
+          <div class="project-link-row">
+            <a href="save-a-bite/">Live site</a>
+            <a href="https://github.com/cocoyou123456789-sketch/shoppingcart">GitHub</a>
+          </div>
+        </article>
+
         <article class="project-card">
           <div class="project-content">
             <h3>ARPES Explorer</h3>
