@@ -63,6 +63,61 @@
         linear-gradient(135deg, rgba(248, 205, 220, 0.62), transparent 38%),
         linear-gradient(225deg, rgba(234, 220, 245, 0.5), transparent 42%),
         var(--paper);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: 11%;
+      left: -92px;
+      border: 1px solid rgba(91, 52, 69, 0.16);
+      box-shadow: 0 0 0 18px rgba(233, 168, 189, 0.1), 0 0 0 38px rgba(233, 168, 189, 0.06);
+    }
+
+    .hero::after {
+      width: 150px;
+      height: 150px;
+      right: 7%;
+      bottom: 13%;
+      background: var(--lilac);
+      opacity: 0.55;
+    }
+
+    .hero-content {
+      display: grid;
+      justify-items: center;
+    }
+
+    .hero-kicker {
+      margin: 0 0 18px;
+      padding: 8px 15px;
+      border: 1px solid rgba(91, 52, 69, 0.2);
+      border-radius: 999px;
+      color: var(--dark-soft);
+      background: rgba(255, 249, 251, 0.7);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero-signoff {
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-family: "Bradley Hand", "Segoe Print", cursive;
+      font-size: 18px;
+      transform: rotate(-2deg);
     }
 
     .hero h1 {
@@ -81,6 +136,20 @@
       color: #5b4651;
       font-size: clamp(21px, 2.2vw, 32px);
       line-height: 1.35;
+    }
+
+    .hero p.hero-kicker {
+      margin: 0 0 18px;
+      color: var(--dark-soft);
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    .hero p.hero-signoff {
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.2;
     }
 
     .button-row {
@@ -1456,7 +1525,8 @@
 <body>
   <main>
     <section class="hero" id="top">
-      <div>
+      <div class="hero-content">
+        <p class="hero-kicker">Coco's corner · Cornell '28</p>
         <h1>Coco You</h1>
         <p>Information / Data Science @ Cornell</p>
         <div class="button-row">
@@ -1464,6 +1534,7 @@
           <a class="button" href="#projects">Projects</a>
           <a class="button" href="#portfolio">Portfolio</a>
         </div>
+        <p class="hero-signoff">data, but make it useful ✦</p>
       </div>
       <a class="arrow" href="#about" aria-label="Scroll to About"></a>
     </section>
