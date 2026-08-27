@@ -743,6 +743,18 @@
       align-items: stretch;
     }
 
+    .project-group-heading {
+      grid-column: 1 / -1;
+      margin: 24px 0 -2px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+      color: var(--dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-style: italic;
+      line-height: 1.1;
+    }
+
     .project-timeline {
       max-width: 980px;
       margin: 0 auto;
@@ -1732,38 +1744,8 @@
 
     <section class="section blush" id="projects">
       <h2>Projects</h2>
-      <p class="project-intro">Selected projects with the product surface, technical stack, and links visible at a glance.</p>
+      <p class="project-intro">Selected and ongoing projects with the product surface, technical stack, and links visible at a glance.</p>
       <div class="project-grid">
-        <article class="project-card savebite-card">
-          <div class="project-content">
-            <h3>Save a Bite</h3>
-            <p class="project-subtitle">Behavioral Savings &amp; Food Discovery Prototype</p>
-            <p class="project-date">2026</p>
-          </div>
-          <div class="project-showcase">
-            <div class="project-visual" aria-hidden="true">
-              <div class="site-preview-card savebite-preview">
-                <strong>Save a Bite</strong>
-                <span>Real food. Zero delivery. Money saved.</span>
-                <div class="mini-metrics">
-                  <div class="mini-metric">5 currencies</div>
-                  <div class="mini-metric">Calories</div>
-                  <div class="mini-metric">EN / 中文</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="project-copy">A takeout-style experience that lets users browse realistic meals, skip the purchase, and redirect the same amount toward a personal peace-of-mind fund.</p>
-          <div class="build-notes">
-            <p>Product: <strong>Behavior design, local savings history, nutrition estimates</strong></p>
-            <p>Frontend: <strong>React, TypeScript, responsive multilingual UI</strong></p>
-          </div>
-          <div class="project-link-row">
-            <a href="https://cocoylh.com/save-a-bite/" target="_blank" rel="noopener">Live site</a>
-            <a href="https://github.com/cocoyou123456789-sketch/shoppingcart">GitHub</a>
-          </div>
-        </article>
-
         <article class="project-card">
           <div class="project-content">
             <h3>ARPES Explorer</h3>
@@ -1882,71 +1864,35 @@
           </div>
         </article>
 
-        <article class="project-card">
-          <div class="project-content">
-            <h3>MealCrew</h3>
-            <p class="project-subtitle">Consumer Web Prototype</p>
-            <p class="project-date">2026</p>
-          </div>
-          <div class="project-showcase">
-            <div class="project-visual" aria-hidden="true">
-              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="visual-body">
-                <div class="phone-preview">
-                  <div class="phone-screen">
-                    <div class="order-card">
-                      <div class="mini-line"></div>
-                      <div class="mini-line short"></div>
-                      <div class="progress"><span></span></div>
-                    </div>
-                    <div class="mini-status-row">
-                      <span class="mini-chip">4/6 joined</span>
-                      <span class="mini-chip">12 min</span>
-                    </div>
-                    <div class="mini-line" style="margin-top: 12px"></div>
-                    <div class="mini-line short"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="project-copy">Group meal ordering prototype with active orders, member thresholds, countdown deadlines, cart state, pickup points, and order progress.</p>
-          <div class="build-notes">
-            <p>Frontend: <strong>HTML, CSS, JavaScript</strong></p>
-            <p>Product: <strong>Cart state, countdown UI, flow simulation</strong></p>
-          </div>
-          <div class="project-link-row">
-            <a href="https://github.com/cocoyou123456789-sketch/delivery-">GitHub</a>
-          </div>
-        </article>
+        <div class="project-group-heading">Ongoing Projects</div>
 
-        <article class="project-card leetcode-card">
+        <article class="project-card savebite-card">
           <div class="project-content">
-            <h3>LeetCode Hot 100 Notebook</h3>
-            <p class="project-subtitle">Interactive Learning &amp; Coding Tool</p>
+            <h3>Save a Bite</h3>
+            <p class="project-subtitle">Behavioral Savings &amp; Food Discovery Prototype</p>
             <p class="project-date">2026</p>
           </div>
           <div class="project-showcase">
             <div class="project-visual" aria-hidden="true">
-              <div class="site-preview-card leetcode-preview">
-                <strong>题解簿 · Hot 100</strong>
-                <span>Code · explain every line · run Python tests</span>
+              <div class="site-preview-card savebite-preview">
+                <strong>Save a Bite</strong>
+                <span>Real food. Zero delivery. Money saved.</span>
                 <div class="mini-metrics">
-                  <div class="mini-metric">100 Problems</div>
-                  <div class="mini-metric">Line Notes</div>
-                  <div class="mini-metric">Python Tests</div>
+                  <div class="mini-metric">5 currencies</div>
+                  <div class="mini-metric">Calories</div>
+                  <div class="mini-metric">EN / 中文</div>
                 </div>
               </div>
             </div>
           </div>
-          <p class="project-copy">Beginner-friendly workspace for solving the Hot 100, writing Python beside each prompt, explaining code line by line, keeping review notes, and checking solutions with in-browser tests.</p>
+          <p class="project-copy">A takeout-style experience that lets users browse realistic meals, skip the purchase, and redirect the same amount toward a personal peace-of-mind fund.</p>
           <div class="build-notes">
-            <p>Frontend: <strong>React, TypeScript, responsive CSS</strong></p>
-            <p>Runtime: <strong>Pyodide, Web Worker, local browser storage</strong></p>
+            <p>Product: <strong>Behavior design, local savings history, nutrition estimates</strong></p>
+            <p>Frontend: <strong>React, TypeScript, responsive multilingual UI</strong></p>
           </div>
           <div class="project-link-row">
-            <a href="https://cocoyou123456789-sketch.github.io/coding-helper/">Live site</a>
-            <a href="https://github.com/cocoyou123456789-sketch/coding-helper">GitHub</a>
+            <a href="https://cocoylh.com/save-a-bite/" target="_blank" rel="noopener">Live site</a>
+            <a href="https://github.com/cocoyou123456789-sketch/shoppingcart">GitHub</a>
           </div>
         </article>
 
