@@ -71,13 +71,8 @@
       position: absolute;
       z-index: 0;
       border-radius: 50%;
-      cursor: grab;
-      touch-action: none;
-      user-select: none;
-    }
-
-    .floating-orb:active {
-      cursor: grabbing;
+      pointer-events: none;
+      will-change: transform;
     }
 
     .floating-orb.ring-orb {
@@ -87,6 +82,7 @@
       left: -92px;
       border: 1px solid rgba(91, 52, 69, 0.16);
       box-shadow: 0 0 0 18px rgba(233, 168, 189, 0.1), 0 0 0 38px rgba(233, 168, 189, 0.06);
+      animation: orb-drift 13s ease-in-out infinite;
     }
 
     .floating-orb.solid-orb {
@@ -96,6 +92,19 @@
       bottom: 13%;
       background: var(--lilac);
       opacity: 0.55;
+      animation: orb-drift-alt 17s ease-in-out infinite;
+    }
+
+    @keyframes orb-drift {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      35% { transform: translate3d(28px, 16px, 0) rotate(4deg); }
+      70% { transform: translate3d(8px, 42px, 0) rotate(-3deg); }
+    }
+
+    @keyframes orb-drift-alt {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      40% { transform: translate3d(-22px, -18px, 0); }
+      75% { transform: translate3d(-8px, 18px, 0); }
     }
 
     .hero-content {
@@ -695,6 +704,10 @@
 
       .js-enabled .experience-card::after {
         transform: translateY(-50%);
+      }
+
+      .floating-orb {
+        animation: none;
       }
     }
 
@@ -1984,40 +1997,6 @@
       }
     }
 
-    document.querySelectorAll(".floating-orb").forEach((orb) => {
-      const hero = orb.closest(".hero");
-      let startX = 0;
-      let startY = 0;
-      let startLeft = 0;
-      let startTop = 0;
-
-      orb.addEventListener("pointerdown", (event) => {
-        if (!hero) return;
-        const orbRect = orb.getBoundingClientRect();
-        const heroRect = hero.getBoundingClientRect();
-        startX = event.clientX;
-        startY = event.clientY;
-        startLeft = orbRect.left - heroRect.left;
-        startTop = orbRect.top - heroRect.top;
-        orb.setPointerCapture(event.pointerId);
-      });
-
-      orb.addEventListener("pointermove", (event) => {
-        if (!hero || !orb.hasPointerCapture(event.pointerId)) return;
-        const heroRect = hero.getBoundingClientRect();
-        const maxLeft = heroRect.width - orb.offsetWidth;
-        const maxTop = heroRect.height - orb.offsetHeight;
-        const nextLeft = Math.max(-orb.offsetWidth * 0.35, Math.min(maxLeft, startLeft + event.clientX - startX));
-        const nextTop = Math.max(0, Math.min(maxTop, startTop + event.clientY - startY));
-        orb.style.left = `${nextLeft}px`;
-        orb.style.top = `${nextTop}px`;
-        orb.style.right = "auto";
-      });
-
-      orb.addEventListener("pointerup", (event) => {
-        if (orb.hasPointerCapture(event.pointerId)) orb.releasePointerCapture(event.pointerId);
-      });
-    });
   </script>
 </body>
 </html>
