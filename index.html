@@ -1743,24 +1743,58 @@
         margin: 0 auto;
       }
     }
+    .hero { min-height: 820px; height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 32px 5vw 0; background: #141218; color: #f7f1f5; }
+    .hero .floating-orb { display: none; }
+    .hero-nav { width: 100%; display: flex; justify-content: space-between; position: relative; z-index: 3; padding-bottom: 26px; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
+    .hero-nav a { padding: 10px 0; }
+    .hero-content { width: 100%; }
+    .hero h1 { color: #f7f1f5; font-family: Inter, system-ui, sans-serif; font-style: normal; font-weight: 850; font-size: clamp(60px, 11.8vw, 180px); letter-spacing: -.055em; line-height: 1.08; }
+    .hero .hero-content > p { color: #c9bccc; font-size: 14px; margin: 0 0 16px; letter-spacing: .07em; }
+    .hero .button-row { position: absolute; top: 510px; right: 0; width: 170px; gap: 10px; }
+    .hero .button { width: 100%; color: #f8edf5; border-color: #7a637a; border-radius: 30px; }
+    .hero .button.primary { background: #805374; }
+    .hero p.hero-signoff { position: absolute; top: 520px; left: 0; max-width: 180px; text-align: left; line-height: 1.6; font-size: 20px; }
+    .cursor-companion { display: block; position: absolute; left: 50%; right: auto; bottom: 0; width: min(64vh, 620px, 68vw); aspect-ratio: 1; transform: translateX(-50%); filter: none; }
+    .companion-card { padding: 0; border: 0; border-radius: 0; background: none; backdrop-filter: none; transform: none; }
+    .companion-portrait { border-radius: 0; background: none; overflow: hidden; perspective: none; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent); }
+    .companion-portrait::after { display: none; }
+    .companion-portrait img { display: none; }
+    .avatar-frame { position: absolute; inset: 0; background: url('assets/coco-turn-sheet.png') 50% 0 / 300% 100% no-repeat; opacity: 0; transition: opacity 140ms ease; }
+    .avatar-frame[data-view="left"] { background-position-x: 0%; }
+    .avatar-frame[data-view="right"] { background-position-x: 100%; }
+    .avatar-frame.is-active { opacity: 1; }
+    .hero .arrow { z-index: 4; left: auto; right: 5vw; border-color: #c9bccc; }
+    @media (max-width: 760px) {
+      .hero { min-height: 760px; height: 100svh; padding: 20px 6vw 0; }
+      .hero-nav { font-size: 10px; letter-spacing: .04em; }
+      .hero h1 { font-size: 14vw; }
+      .hero .hero-content > p { font-size: 11px; }
+      .cursor-companion { width: min(100vw, 520px); bottom: 0; }
+      .hero .button-row { position: static; width: auto; margin-top: 22px; }
+      .hero .button { width: auto; padding: 0 16px; font-size: 13px; }
+      .hero p.hero-signoff { position: static; max-width: none; margin-top: 16px; font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .avatar-frame { transition: none; } }
   </style>
 </head>
 <body>
   <main>
     <section class="hero" id="top">
+      <nav class="hero-nav" aria-label="Homepage navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
       <div class="floating-orb ring-orb" aria-label="Decorative circle" role="img"></div>
       <div class="floating-orb solid-orb" aria-label="Decorative circle" role="img"></div>
       <div class="cursor-companion" aria-hidden="true">
         <div class="companion-card">
           <div class="companion-portrait">
-            <img src="assets/coco-virtual-avatar.png" alt="">
+            <div class="avatar-frame" data-view="left"></div>
+            <div class="avatar-frame is-active" data-view="center"></div>
+            <div class="avatar-frame" data-view="right"></div>
           </div>
-          <span class="companion-label">hi, I'm Coco</span>
         </div>
       </div>
       <div class="hero-content">
-        <h1>Coco You</h1>
         <p>Information / Data Science @ Cornell</p>
+        <h1>HI, I'M COCO.</h1>
         <div class="button-row">
           <a class="button primary" href="assets/coco-you-resume.pdf">Resume</a>
           <a class="button" href="#projects">Projects</a>
@@ -2202,7 +2236,7 @@
     }
 
     const companion = document.querySelector(".cursor-companion");
-    if (companion && window.matchMedia("(pointer: fine) and (min-width: 761px)").matches) {
+    if (companion && window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) {
       let frame = 0;
       let pointerX = window.innerWidth / 2;
       let pointerY = window.innerHeight / 2;
@@ -2213,20 +2247,21 @@
         const centerY = bounds.top + bounds.height / 2;
         const horizontal = Math.max(-1, Math.min(1, (pointerX - centerX) / (window.innerWidth * .42)));
         const vertical = Math.max(-1, Math.min(1, (pointerY - centerY) / (window.innerHeight * .48)));
-        companion.style.setProperty("--companion-x", `${horizontal * 13}px`);
-        companion.style.setProperty("--companion-y", `${vertical * 9}px`);
-        companion.style.setProperty("--companion-tilt", `${horizontal * 2.2}deg`);
-        companion.style.setProperty("--gaze-x", `${horizontal * 5}px`);
-        companion.style.setProperty("--gaze-y", `${vertical * 3}px`);
-        companion.style.setProperty("--head-turn", `${horizontal * 7}deg`);
+        const direction = horizontal < -.2 ? "left" : horizontal > .2 ? "right" : "center";
+        companion.querySelectorAll('.avatar-frame').forEach(image => {
+          image.classList.toggle('is-active', image.dataset.view === direction);
+        });
         frame = 0;
       };
 
-      window.addEventListener("pointermove", (event) => {
+      document.querySelector('.hero').addEventListener("pointermove", (event) => {
         pointerX = event.clientX;
         pointerY = event.clientY;
         if (!frame) frame = requestAnimationFrame(updateCompanion);
       }, { passive: true });
+      document.querySelector('.hero').addEventListener('pointerleave', () => {
+        companion.querySelectorAll('.avatar-frame').forEach(image => image.classList.toggle('is-active', image.dataset.view === 'center'));
+      });
     }
 
   </script>
