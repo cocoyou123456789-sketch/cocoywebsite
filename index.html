@@ -1759,7 +1759,7 @@
     .companion-portrait { border-radius: 0; background: none; overflow: hidden; perspective: none; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent); }
     .companion-portrait::after { display: none; }
     .companion-portrait img { display: none; }
-    .avatar-frame { position: absolute; inset: 0; background: url('assets/coco-turn-sheet.png') 50% 0 / 300% 100% no-repeat; opacity: 0; transition: opacity 140ms ease; }
+    .avatar-frame { position: absolute; inset: 0; background: url('assets/coco-turn-sheet.png') 50% 0 / 300% 100% no-repeat; opacity: 0; transition: opacity 240ms cubic-bezier(.4, 0, .2, 1); }
     .avatar-frame[data-view="left"] { background-position-x: 0%; }
     .avatar-frame[data-view="right"] { background-position-x: 100%; }
     .avatar-frame.is-active { opacity: 1; }
@@ -2238,30 +2238,48 @@
     const companion = document.querySelector(".cursor-companion");
     if (companion && window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) {
       let frame = 0;
-      let pointerX = window.innerWidth / 2;
-      let pointerY = window.innerHeight / 2;
+      let target = 0;
+      let gaze = 0;
+      let direction = 0;
+      let previousTime = 0;
+      let lastChange = -Infinity;
+      const views = ['left', 'center', 'right'];
+      const images = companion.querySelectorAll('.avatar-frame');
+      const hero = document.querySelector('.hero');
+      const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
 
-      const updateCompanion = () => {
-        const bounds = companion.getBoundingClientRect();
-        const centerX = bounds.left + bounds.width / 2;
-        const centerY = bounds.top + bounds.height / 2;
-        const horizontal = Math.max(-1, Math.min(1, (pointerX - centerX) / (window.innerWidth * .42)));
-        const vertical = Math.max(-1, Math.min(1, (pointerY - centerY) / (window.innerHeight * .48)));
-        const direction = horizontal < -.2 ? "left" : horizontal > .2 ? "right" : "center";
-        companion.querySelectorAll('.avatar-frame').forEach(image => {
-          image.classList.toggle('is-active', image.dataset.view === direction);
-        });
+      const updateCompanion = (time) => {
         frame = 0;
+        const elapsed = Math.min(time - previousTime || 16, 50);
+        previousTime = time;
+        // Time-based damping works equally on 60 Hz and high-refresh screens.
+        gaze += (target - gaze) * (1 - Math.exp(-elapsed / 105));
+        let next = direction;
+        // Separate entry/exit thresholds prevent flicker at the boundary.
+        if (direction === 0) next = gaze < -.27 ? -1 : gaze > .27 ? 1 : 0;
+        else if ((direction === -1 && gaze > -.12) || (direction === 1 && gaze < .12)) next = 0;
+        // Pass through the front pose when crossing from one side to the other.
+        if (next !== direction && time - lastChange >= 260) {
+          direction = next;
+          lastChange = time;
+          images.forEach(image => image.classList.toggle('is-active', image.dataset.view === views[direction + 1]));
+        }
+        if (Math.abs(target - gaze) > .001 || next !== direction || time - lastChange < 280) {
+          frame = requestAnimationFrame(updateCompanion);
+        }
       };
 
-      document.querySelector('.hero').addEventListener("pointermove", (event) => {
-        pointerX = event.clientX;
-        pointerY = event.clientY;
-        if (!frame) frame = requestAnimationFrame(updateCompanion);
+      const follow = (value) => {
+        target = motion.matches ? value : 0;
+        if (!frame) { previousTime = performance.now(); frame = requestAnimationFrame(updateCompanion); }
+      };
+      hero.addEventListener("pointermove", (event) => {
+        const bounds = companion.getBoundingClientRect();
+        follow(Math.max(-1, Math.min(1, (event.clientX - bounds.left - bounds.width / 2) / (window.innerWidth * .42))));
       }, { passive: true });
-      document.querySelector('.hero').addEventListener('pointerleave', () => {
-        companion.querySelectorAll('.avatar-frame').forEach(image => image.classList.toggle('is-active', image.dataset.view === 'center'));
-      });
+      hero.addEventListener('pointerleave', () => follow(0));
+      window.addEventListener('blur', () => follow(0));
+      motion.addEventListener('change', () => follow(0));
     }
 
   </script>
