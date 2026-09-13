@@ -1059,6 +1059,136 @@
       background: #26e6ff;
     }
 
+    /* Project-specific thumbnail art keeps the cards from reading like generic mockups. */
+    .project-visual.arpes-art {
+      min-height: 260px;
+      padding: 24px;
+      background: linear-gradient(135deg, #241c35, #4c3151 58%, #d485a5);
+      color: #fff7fa;
+      overflow: hidden;
+    }
+
+    .arpes-art .art-kicker,
+    .lakeshore-art .art-kicker,
+    .porch-art .art-kicker {
+      display: block;
+      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      opacity: .72;
+    }
+
+    .arpes-art .spectral-map {
+      height: 132px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 12px;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(255,255,255,.09) 19px 20px),
+        repeating-linear-gradient(0deg, transparent 0 18px, rgba(255,255,255,.09) 19px 20px),
+        linear-gradient(165deg, #332c7e, #7f4c9b 44%, #e88ca8 72%, #ffd6a5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .spectral-map::after {
+      content: "";
+      position: absolute;
+      inset: 13% 9%;
+      background: repeating-linear-gradient(168deg, transparent 0 15px, rgba(255,255,255,.72) 16px 18px, transparent 19px 32px);
+      opacity: .62;
+      transform: skewY(-8deg);
+    }
+
+    .arpes-art .art-caption {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .project-visual.lakeshore-art {
+      min-height: 260px;
+      padding: 24px;
+      background: #102733;
+      color: #d9f8fb;
+      overflow: hidden;
+    }
+
+    .lakeshore-art .instrument-readout {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .lakeshore-art .temperature {
+      color: #26e6ff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 800;
+      letter-spacing: -.08em;
+      line-height: .9;
+    }
+
+    .lakeshore-art .unit {
+      color: #8eb5bc;
+      font-size: 13px;
+    }
+
+    .lakeshore-art .signal-line {
+      height: 58px;
+      border-bottom: 2px solid #26e6ff;
+      background: linear-gradient(165deg, transparent 0 26%, rgba(38,230,255,.2) 27% 29%, transparent 30% 47%, rgba(38,230,255,.45) 48% 50%, transparent 51% 67%, rgba(38,230,255,.8) 68% 70%, transparent 71%);
+      clip-path: polygon(0 80%, 12% 68%, 20% 73%, 32% 42%, 44% 62%, 57% 26%, 68% 45%, 78% 18%, 89% 34%, 100% 6%, 100% 100%, 0 100%);
+    }
+
+    .project-visual.porch-art {
+      min-height: 260px;
+      padding: 24px;
+      background: linear-gradient(145deg, #fff0f5, #e9dcf5);
+      color: #4d3545;
+      overflow: hidden;
+    }
+
+    .porch-art .map-surface {
+      height: 150px;
+      position: relative;
+      border: 1px solid rgba(91,52,69,.18);
+      border-radius: 18px;
+      background: #fbf8f3;
+      overflow: hidden;
+    }
+
+    .map-surface::before,
+    .map-surface::after {
+      content: "";
+      position: absolute;
+      background: rgba(217, 161, 183, .36);
+      transform: rotate(-18deg);
+    }
+
+    .map-surface::before { width: 130%; height: 9px; top: 43%; left: -12%; box-shadow: 0 26px rgba(161, 179, 206, .32); }
+    .map-surface::after { width: 9px; height: 130%; top: -12%; left: 54%; box-shadow: 26px 0 rgba(161, 179, 206, .3); }
+
+    .map-pin {
+      position: absolute;
+      z-index: 1;
+      width: 15px;
+      height: 15px;
+      border: 3px solid #fff;
+      border-radius: 50% 50% 50% 0;
+      background: var(--dark-soft);
+      box-shadow: 0 5px 12px rgba(91,52,69,.22);
+      transform: rotate(-45deg);
+    }
+
+    .map-pin.one { top: 30%; left: 24%; }
+    .map-pin.two { top: 58%; left: 63%; background: #d38ba7; }
+    .map-pin.three { top: 23%; left: 78%; background: #a982c2; }
+
     .ls336-preview .bar:nth-child(2) {
       background: #ff8fb1;
     }
@@ -1841,30 +1971,10 @@
             <p class="project-date">2026</p>
           </div>
           <div class="project-showcase">
-            <div class="project-visual" aria-hidden="true">
-              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="visual-body">
-                <div class="visual-search">Search: FeSe, Bi2212, Tc, ARPES figure</div>
-                <div class="mini-grid">
-                  <div class="mini-panel">
-                    <div class="mini-line"></div>
-                    <div class="mini-line short"></div>
-                    <div class="mini-chip-row">
-                      <span class="mini-chip">Materials</span>
-                      <span class="mini-chip">Figures</span>
-                      <span class="mini-chip">DOI</span>
-                    </div>
-                  </div>
-                  <div class="mini-panel">
-                    <div class="chart-bars">
-                      <span class="bar" style="height: 44%"></span>
-                      <span class="bar"></span>
-                      <span class="bar"></span>
-                      <span class="bar"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="project-visual arpes-art" aria-hidden="true">
+              <span class="art-kicker">research data product · ARPES</span>
+              <div class="spectral-map"></div>
+              <div class="art-caption"><span>FeSe · Bi2212</span><span>figure + source record</span></div>
             </div>
           </div>
           <p class="project-copy">Searchable research site for ARPES and superconductivity literature, with materials, figures, keywords, and source records in one browser workflow.</p>
@@ -1885,30 +1995,10 @@
             <p class="project-date">2026</p>
           </div>
           <div class="project-showcase">
-            <div class="project-visual ls336-preview" aria-hidden="true">
-              <div class="visual-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="visual-body">
-                <div class="visual-search">Lake Shore 336 · Temp (K) · CSV logging</div>
-                <div class="mini-grid">
-                  <div class="mini-panel">
-                    <div class="mini-line"></div>
-                    <div class="mini-line short"></div>
-                    <div class="mini-chip-row">
-                      <span class="mini-chip">Cold Head</span>
-                      <span class="mini-chip">Sample</span>
-                      <span class="mini-chip">PID</span>
-                    </div>
-                  </div>
-                  <div class="mini-panel">
-                    <div class="chart-bars">
-                      <span class="bar" style="height: 62%"></span>
-                      <span class="bar"></span>
-                      <span class="bar"></span>
-                      <span class="bar"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="project-visual lakeshore-art" aria-hidden="true">
+              <span class="art-kicker">instrument control · live readout</span>
+              <div class="instrument-readout"><span class="temperature">12.48</span><span class="unit">K · sample channel</span></div>
+              <div class="signal-line"></div>
             </div>
           </div>
           <p class="project-copy">Browser dashboard and EPICS IOC for Lake Shore 336 temperature control, with live channel readbacks, ramp/setpoint controls, safety limits, bilingual UI, and CSV logging.</p>
@@ -1929,16 +2019,9 @@
             <p class="project-date">2026</p>
           </div>
           <div class="project-showcase">
-            <div class="project-visual" aria-hidden="true">
-              <div class="site-preview-card">
-                <strong>porch<span style="color: var(--accent)">.</span></strong>
-                <span>Your neighborhood has a story.</span>
-                <div class="mini-metrics">
-                  <div class="mini-metric">Ithaca</div>
-                  <div class="mini-metric">NYC</div>
-                  <div class="mini-metric">Civic data</div>
-                </div>
-              </div>
+            <div class="project-visual porch-art" aria-hidden="true">
+              <span class="art-kicker">neighborhood civic dashboard</span>
+              <div class="map-surface"><span class="map-pin one"></span><span class="map-pin two"></span><span class="map-pin three"></span></div>
             </div>
           </div>
           <p class="project-copy">Mobile-first civic dashboard that connects residents to local officials, permits, public spending, neighborhood data, and ways to get involved.</p>
