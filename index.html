@@ -114,6 +114,85 @@
       z-index: 1;
     }
 
+    /* A small, cursor-aware portrait adds the playful, living detail from the reference. */
+    .cursor-companion {
+      --companion-x: 0px;
+      --companion-y: 0px;
+      --companion-tilt: 0deg;
+      --gaze-x: 0px;
+      --gaze-y: 0px;
+      position: absolute;
+      z-index: 1;
+      right: clamp(24px, 8vw, 120px);
+      bottom: clamp(36px, 9vh, 96px);
+      width: clamp(138px, 15vw, 208px);
+      aspect-ratio: 0.78;
+      transform: translate3d(var(--companion-x), var(--companion-y), 0) rotate(var(--companion-tilt));
+      transition: transform 520ms cubic-bezier(.2,.75,.25,1);
+      pointer-events: none;
+      filter: drop-shadow(0 18px 24px rgba(91, 52, 69, .14));
+    }
+
+    .companion-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 9px 9px 12px;
+      border: 1px solid rgba(91, 52, 69, .18);
+      border-radius: 44% 44% 22% 22% / 30% 30% 16% 16%;
+      background: rgba(255, 249, 251, .72);
+      backdrop-filter: blur(8px);
+      transform: rotate(-3deg);
+    }
+
+    .companion-portrait {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 38% 38% 18% 18% / 26% 26% 14% 14%;
+      background: var(--lilac);
+    }
+
+    .companion-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(255,255,255,.36), transparent 42%, rgba(91,52,69,.12));
+      mix-blend-mode: soft-light;
+    }
+
+    .companion-portrait img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      transform: translate3d(var(--gaze-x), var(--gaze-y), 0) scale(1.08);
+      transition: transform 520ms cubic-bezier(.2,.75,.25,1);
+    }
+
+    .companion-label {
+      position: absolute;
+      z-index: 2;
+      left: 50%;
+      bottom: -13px;
+      padding: 6px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 760px) {
+      .cursor-companion { display: none; }
+    }
+
     .hero-signoff {
       margin: 25px 0 0;
       color: var(--muted);
@@ -1536,8 +1615,16 @@
 <body>
   <main>
     <section class="hero" id="top">
-      <div class="floating-orb ring-orb" aria-label="Draggable decorative circle" role="img"></div>
-      <div class="floating-orb solid-orb" aria-label="Draggable decorative circle" role="img"></div>
+      <div class="floating-orb ring-orb" aria-label="Decorative circle" role="img"></div>
+      <div class="floating-orb solid-orb" aria-label="Decorative circle" role="img"></div>
+      <div class="cursor-companion" aria-hidden="true">
+        <div class="companion-card">
+          <div class="companion-portrait">
+            <img src="assets/profile-hd.png" alt="">
+          </div>
+          <span class="companion-label">hi, I'm Coco</span>
+        </div>
+      </div>
       <div class="hero-content">
         <h1>Coco You</h1>
         <p>Information / Data Science @ Cornell</p>
@@ -2026,6 +2113,33 @@
       } else {
         experienceSection.classList.add("is-visible");
       }
+    }
+
+    const companion = document.querySelector(".cursor-companion");
+    if (companion && window.matchMedia("(pointer: fine) and (min-width: 761px)").matches) {
+      let frame = 0;
+      let pointerX = window.innerWidth / 2;
+      let pointerY = window.innerHeight / 2;
+
+      const updateCompanion = () => {
+        const bounds = companion.getBoundingClientRect();
+        const centerX = bounds.left + bounds.width / 2;
+        const centerY = bounds.top + bounds.height / 2;
+        const horizontal = Math.max(-1, Math.min(1, (pointerX - centerX) / (window.innerWidth * .42)));
+        const vertical = Math.max(-1, Math.min(1, (pointerY - centerY) / (window.innerHeight * .48)));
+        companion.style.setProperty("--companion-x", `${horizontal * 13}px`);
+        companion.style.setProperty("--companion-y", `${vertical * 9}px`);
+        companion.style.setProperty("--companion-tilt", `${horizontal * 2.2}deg`);
+        companion.style.setProperty("--gaze-x", `${horizontal * 5}px`);
+        companion.style.setProperty("--gaze-y", `${vertical * 3}px`);
+        frame = 0;
+      };
+
+      window.addEventListener("pointermove", (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = requestAnimationFrame(updateCompanion);
+      }, { passive: true });
     }
 
   </script>
