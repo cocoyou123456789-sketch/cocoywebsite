@@ -121,6 +121,7 @@
       --companion-tilt: 0deg;
       --gaze-x: 0px;
       --gaze-y: 0px;
+      --head-turn: 0deg;
       position: absolute;
       z-index: 1;
       right: clamp(24px, 8vw, 120px);
@@ -149,6 +150,7 @@
       position: relative;
       height: 100%;
       overflow: hidden;
+      perspective: 700px;
       border-radius: 38% 38% 18% 18% / 26% 26% 14% 14%;
       background: var(--lilac);
     }
@@ -167,7 +169,8 @@
       display: block;
       object-fit: cover;
       object-position: center top;
-      transform: translate3d(var(--gaze-x), var(--gaze-y), 0) scale(1.08);
+      transform: translate3d(var(--gaze-x), var(--gaze-y), 0) rotateY(var(--head-turn)) scale(1.08);
+      transform-origin: 50% 42%;
       transition: transform 520ms cubic-bezier(.2,.75,.25,1);
     }
 
@@ -2215,6 +2218,7 @@
         companion.style.setProperty("--companion-tilt", `${horizontal * 2.2}deg`);
         companion.style.setProperty("--gaze-x", `${horizontal * 5}px`);
         companion.style.setProperty("--gaze-y", `${vertical * 3}px`);
+        companion.style.setProperty("--head-turn", `${horizontal * 7}deg`);
         frame = 0;
       };
 
