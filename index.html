@@ -114,88 +114,6 @@
       z-index: 1;
     }
 
-    /* A small, cursor-aware portrait adds the playful, living detail from the reference. */
-    .cursor-companion {
-      --companion-x: 0px;
-      --companion-y: 0px;
-      --companion-tilt: 0deg;
-      --gaze-x: 0px;
-      --gaze-y: 0px;
-      --head-turn: 0deg;
-      position: absolute;
-      z-index: 1;
-      right: clamp(18px, 6vw, 92px);
-      bottom: clamp(26px, 5vh, 64px);
-      width: clamp(246px, 28vw, 410px);
-      aspect-ratio: 0.78;
-      transform: translate3d(var(--companion-x), var(--companion-y), 0) rotate(var(--companion-tilt));
-      transition: transform 520ms cubic-bezier(.2,.75,.25,1);
-      pointer-events: none;
-      filter: drop-shadow(0 18px 24px rgba(91, 52, 69, .14));
-    }
-
-    .companion-card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding: 9px 9px 12px;
-      border: 1px solid rgba(91, 52, 69, .18);
-      border-radius: 44% 44% 22% 22% / 30% 30% 16% 16%;
-      background: rgba(255, 249, 251, .72);
-      backdrop-filter: blur(8px);
-      transform: rotate(-3deg);
-    }
-
-    .companion-portrait {
-      position: relative;
-      height: 100%;
-      overflow: hidden;
-      perspective: 700px;
-      border-radius: 38% 38% 18% 18% / 26% 26% 14% 14%;
-      background: var(--lilac);
-    }
-
-    .companion-portrait::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, rgba(255,255,255,.36), transparent 42%, rgba(91,52,69,.12));
-      mix-blend-mode: soft-light;
-    }
-
-    .companion-portrait img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center top;
-      transform: translate3d(var(--gaze-x), var(--gaze-y), 0) rotateY(var(--head-turn)) scale(1.08);
-      transform-origin: 50% 42%;
-      transition: transform 520ms cubic-bezier(.2,.75,.25,1);
-    }
-
-    .companion-label {
-      position: absolute;
-      z-index: 2;
-      left: 50%;
-      bottom: -13px;
-      padding: 6px 11px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--cream);
-      color: var(--dark);
-      font-size: 11px;
-      font-weight: 750;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      transform: translateX(-50%);
-    }
-
-    @media (max-width: 760px) {
-      .cursor-companion { display: none; }
-    }
-
     .hero-signoff {
       margin: 25px 0 0;
       color: var(--muted);
@@ -1743,38 +1661,27 @@
         margin: 0 auto;
       }
     }
-    .hero { min-height: 820px; height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 32px 5vw 0; background: #141218; color: #f7f1f5; }
+    .hero { min-height: 720px; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 92px 5vw 110px; background: #141218; color: #f7f1f5; }
     .hero .floating-orb { display: none; }
-    .hero-nav { width: 100%; display: flex; justify-content: space-between; position: relative; z-index: 3; padding-bottom: 26px; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
+    .hero-nav { display: flex; justify-content: space-between; position: absolute; z-index: 3; top: 28px; left: 5vw; right: 5vw; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
     .hero-nav a { padding: 10px 0; }
-    .hero-content { width: 100%; }
+    .hero-content { width: min(100%, 1120px); margin: 0 auto; }
     .hero h1 { color: #f7f1f5; font-family: Inter, system-ui, sans-serif; font-style: normal; font-weight: 850; font-size: clamp(60px, 11.8vw, 180px); letter-spacing: -.055em; line-height: 1.08; }
-    .hero .hero-content > p { color: #c9bccc; font-size: 14px; margin: 0 0 16px; letter-spacing: .07em; }
-    .hero .button-row { position: absolute; top: 510px; right: 0; width: 170px; gap: 10px; }
-    .hero .button { width: 100%; color: #f8edf5; border-color: #7a637a; border-radius: 30px; }
+    .hero .hero-content > p { color: #c9bccc; font-size: 14px; margin: 0 0 18px; letter-spacing: .07em; }
+    .hero .button-row { position: static; width: auto; gap: 12px; margin-top: 34px; }
+    .hero .button { min-width: 132px; width: auto; color: #f8edf5; border-color: #7a637a; border-radius: 30px; }
     .hero .button.primary { background: #805374; }
-    .hero p.hero-signoff { position: absolute; top: 520px; left: 0; max-width: 180px; text-align: left; line-height: 1.6; font-size: 20px; }
-    .cursor-companion { display: block; position: absolute; left: 50%; right: auto; bottom: 0; width: min(64vh, 620px, 68vw); aspect-ratio: 1; transform: translateX(-50%); filter: none; }
-    .companion-card { padding: 0; border: 0; border-radius: 0; background: none; backdrop-filter: none; transform: none; }
-    .companion-portrait { border-radius: 0; background: none; overflow: hidden; perspective: none; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent); }
-    .companion-portrait::after { display: none; }
-    .companion-portrait img { display: none; }
-    .avatar-frame { position: absolute; inset: 0; background: url('assets/coco-turn-professional.png') 50% 0 / 300% 100% no-repeat; opacity: 0; transition: opacity 240ms cubic-bezier(.4, 0, .2, 1); }
-    .avatar-frame[data-view="left"] { background-position-x: 0%; }
-    .avatar-frame[data-view="right"] { background-position-x: 100%; }
-    .avatar-frame.is-active { opacity: 1; }
+    .hero p.hero-signoff { position: static; max-width: none; margin-top: 28px; text-align: center; line-height: 1.5; font-size: 18px; }
     .hero .arrow { z-index: 4; left: auto; right: 5vw; border-color: #c9bccc; }
     @media (max-width: 760px) {
-      .hero { min-height: 760px; height: 100svh; padding: 20px 6vw 0; }
+      .hero { min-height: 650px; height: 100svh; padding: 90px 6vw 100px; }
       .hero-nav { font-size: 10px; letter-spacing: .04em; }
       .hero h1 { font-size: 14vw; }
       .hero .hero-content > p { font-size: 11px; }
-      .cursor-companion { width: min(100vw, 520px); bottom: 0; }
-      .hero .button-row { position: static; width: auto; margin-top: 22px; }
+      .hero .button-row { margin-top: 24px; }
       .hero .button { width: auto; padding: 0 16px; font-size: 13px; }
-      .hero p.hero-signoff { position: static; max-width: none; margin-top: 16px; font-size: 16px; }
+      .hero p.hero-signoff { margin-top: 20px; font-size: 16px; }
     }
-    @media (prefers-reduced-motion: reduce) { .avatar-frame { transition: none; } }
   </style>
 </head>
 <body>
@@ -1783,15 +1690,6 @@
       <nav class="hero-nav" aria-label="Homepage navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
       <div class="floating-orb ring-orb" aria-label="Decorative circle" role="img"></div>
       <div class="floating-orb solid-orb" aria-label="Decorative circle" role="img"></div>
-      <div class="cursor-companion" aria-hidden="true">
-        <div class="companion-card">
-          <div class="companion-portrait">
-            <div class="avatar-frame" data-view="left"></div>
-            <div class="avatar-frame is-active" data-view="center"></div>
-            <div class="avatar-frame" data-view="right"></div>
-          </div>
-        </div>
-      </div>
       <div class="hero-content">
         <p>Information &amp; Computer Science @ Cornell</p>
         <h1>HI, I'M COCO.</h1>
@@ -2233,53 +2131,6 @@
       } else {
         experienceSection.classList.add("is-visible");
       }
-    }
-
-    const companion = document.querySelector(".cursor-companion");
-    if (companion && window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)").matches) {
-      let frame = 0;
-      let target = 0;
-      let gaze = 0;
-      let direction = 0;
-      let previousTime = 0;
-      let lastChange = -Infinity;
-      const views = ['left', 'center', 'right'];
-      const images = companion.querySelectorAll('.avatar-frame');
-      const hero = document.querySelector('.hero');
-      const motion = window.matchMedia('(prefers-reduced-motion: no-preference)');
-
-      const updateCompanion = (time) => {
-        frame = 0;
-        const elapsed = Math.min(time - previousTime || 16, 50);
-        previousTime = time;
-        // Time-based damping works equally on 60 Hz and high-refresh screens.
-        gaze += (target - gaze) * (1 - Math.exp(-elapsed / 105));
-        let next = direction;
-        // Separate entry/exit thresholds prevent flicker at the boundary.
-        if (direction === 0) next = gaze < -.27 ? -1 : gaze > .27 ? 1 : 0;
-        else if ((direction === -1 && gaze > -.12) || (direction === 1 && gaze < .12)) next = 0;
-        // Pass through the front pose when crossing from one side to the other.
-        if (next !== direction && time - lastChange >= 260) {
-          direction = next;
-          lastChange = time;
-          images.forEach(image => image.classList.toggle('is-active', image.dataset.view === views[direction + 1]));
-        }
-        if (Math.abs(target - gaze) > .001 || next !== direction || time - lastChange < 280) {
-          frame = requestAnimationFrame(updateCompanion);
-        }
-      };
-
-      const follow = (value) => {
-        target = motion.matches ? value : 0;
-        if (!frame) { previousTime = performance.now(); frame = requestAnimationFrame(updateCompanion); }
-      };
-      hero.addEventListener("pointermove", (event) => {
-        const bounds = companion.getBoundingClientRect();
-        follow(Math.max(-1, Math.min(1, (event.clientX - bounds.left - bounds.width / 2) / (window.innerWidth * .42))));
-      }, { passive: true });
-      hero.addEventListener('pointerleave', () => follow(0));
-      window.addEventListener('blur', () => follow(0));
-      motion.addEventListener('change', () => follow(0));
     }
 
   </script>
