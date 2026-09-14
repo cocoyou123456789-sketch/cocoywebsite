@@ -1661,27 +1661,38 @@
         margin: 0 auto;
       }
     }
-    .hero { min-height: 720px; height: 100svh; display: flex; flex-direction: column; justify-content: center; padding: 92px 5vw 110px; background: #141218; color: #f7f1f5; }
+    .hero { min-height: 820px; height: 100svh; display: flex; flex-direction: column; justify-content: flex-start; padding: 32px 5vw 0; background: #141218; color: #f7f1f5; }
     .hero .floating-orb { display: none; }
-    .hero-nav { display: flex; justify-content: space-between; position: absolute; z-index: 3; top: 28px; left: 5vw; right: 5vw; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
+    .hero-nav { width: 100%; display: flex; justify-content: space-between; position: relative; z-index: 3; padding-bottom: 26px; font-size: 13px; letter-spacing: .13em; text-transform: uppercase; }
     .hero-nav a { padding: 10px 0; }
-    .hero-content { width: min(100%, 1120px); margin: 0 auto; }
+    .hero-content { width: 100%; margin: 0; }
     .hero h1 { color: #f7f1f5; font-family: Inter, system-ui, sans-serif; font-style: normal; font-weight: 850; font-size: clamp(60px, 11.8vw, 180px); letter-spacing: -.055em; line-height: 1.08; }
-    .hero .hero-content > p { color: #c9bccc; font-size: 14px; margin: 0 0 18px; letter-spacing: .07em; }
-    .hero .button-row { position: static; width: auto; gap: 12px; margin-top: 34px; }
-    .hero .button { min-width: 132px; width: auto; color: #f8edf5; border-color: #7a637a; border-radius: 30px; }
+    .hero .hero-content > p { color: #c9bccc; font-size: 14px; margin: 0 0 16px; letter-spacing: .07em; }
+    .hero .button-row { position: absolute; top: 510px; right: 0; width: 170px; gap: 10px; }
+    .hero .button { min-width: 0; width: 100%; color: #f8edf5; border-color: #7a637a; border-radius: 30px; }
     .hero .button.primary { background: #805374; }
-    .hero p.hero-signoff { position: static; max-width: none; margin-top: 28px; text-align: center; line-height: 1.5; font-size: 18px; }
+    .hero p.hero-signoff { position: absolute; top: 520px; left: 0; max-width: 190px; margin-top: 0; text-align: left; line-height: 1.6; font-size: 20px; }
+    .cursor-companion { display: block; position: absolute; z-index: 1; left: 50%; bottom: 0; width: min(64vh, 620px, 68vw); aspect-ratio: 1; transform: translateX(-50%); pointer-events: none; }
+    .companion-portrait { position: relative; width: 100%; height: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 9%, black 91%, transparent); }
+    .avatar-frame { position: absolute; inset: 0; background-position: 50% 0; background-size: 300% 100%; background-repeat: no-repeat; opacity: 0; transform: scale(1.006); transition: opacity 210ms cubic-bezier(.4, 0, .2, 1), transform 260ms ease; }
+    .avatar-frame[data-row="up"] { background-image: url('assets/coco-turn-professional-up.png'); }
+    .avatar-frame[data-row="level"] { background-image: url('assets/coco-turn-professional.png'); }
+    .avatar-frame[data-row="down"] { background-image: url('assets/coco-turn-professional-down.png'); }
+    .avatar-frame[data-column="left"] { background-position-x: 0%; }
+    .avatar-frame[data-column="right"] { background-position-x: 100%; }
+    .avatar-frame.is-active { opacity: 1; transform: scale(1); }
     .hero .arrow { z-index: 4; left: auto; right: 5vw; border-color: #c9bccc; }
     @media (max-width: 760px) {
-      .hero { min-height: 650px; height: 100svh; padding: 90px 6vw 100px; }
+      .hero { min-height: 760px; height: 100svh; padding: 20px 6vw 0; }
       .hero-nav { font-size: 10px; letter-spacing: .04em; }
       .hero h1 { font-size: 14vw; }
       .hero .hero-content > p { font-size: 11px; }
-      .hero .button-row { margin-top: 24px; }
+      .cursor-companion { width: min(100vw, 520px); }
+      .hero .button-row { position: static; width: auto; margin-top: 22px; }
       .hero .button { width: auto; padding: 0 16px; font-size: 13px; }
-      .hero p.hero-signoff { margin-top: 20px; font-size: 16px; }
+      .hero p.hero-signoff { position: static; max-width: none; margin-top: 16px; text-align: center; font-size: 16px; }
     }
+    @media (prefers-reduced-motion: reduce) { .avatar-frame { transition: none; } }
   </style>
 </head>
 <body>
@@ -1690,6 +1701,19 @@
       <nav class="hero-nav" aria-label="Homepage navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
       <div class="floating-orb ring-orb" aria-label="Decorative circle" role="img"></div>
       <div class="floating-orb solid-orb" aria-label="Decorative circle" role="img"></div>
+      <div class="cursor-companion" aria-hidden="true">
+        <div class="companion-portrait">
+          <div class="avatar-frame" data-row="up" data-column="left"></div>
+          <div class="avatar-frame" data-row="up" data-column="center"></div>
+          <div class="avatar-frame" data-row="up" data-column="right"></div>
+          <div class="avatar-frame" data-row="level" data-column="left"></div>
+          <div class="avatar-frame is-active" data-row="level" data-column="center"></div>
+          <div class="avatar-frame" data-row="level" data-column="right"></div>
+          <div class="avatar-frame" data-row="down" data-column="left"></div>
+          <div class="avatar-frame" data-row="down" data-column="center"></div>
+          <div class="avatar-frame" data-row="down" data-column="right"></div>
+        </div>
+      </div>
       <div class="hero-content">
         <p>Information &amp; Computer Science @ Cornell</p>
         <h1>HI, I'M COCO.</h1>
@@ -2131,6 +2155,60 @@
       } else {
         experienceSection.classList.add("is-visible");
       }
+    }
+
+    const companion = document.querySelector(".cursor-companion");
+    const hero = document.querySelector(".hero");
+    const precisePointer = window.matchMedia("(pointer: fine) and (prefers-reduced-motion: no-preference)");
+    if (companion && hero && precisePointer.matches) {
+      const images = companion.querySelectorAll(".avatar-frame");
+      let targetX = 0;
+      let targetY = 0;
+      let gazeX = 0;
+      let gazeY = 0;
+      let frame = 0;
+      let previousTime = 0;
+      let activeView = "level-center";
+
+      const columnFor = (value) => value < -0.28 ? "left" : value > 0.28 ? "right" : "center";
+      const rowFor = (value) => value < -0.28 ? "up" : value > 0.28 ? "down" : "level";
+
+      const showView = (view) => {
+        if (view === activeView) return;
+        activeView = view;
+        images.forEach((image) => {
+          image.classList.toggle("is-active", `${image.dataset.row}-${image.dataset.column}` === view);
+        });
+      };
+
+      const animateGaze = (time) => {
+        const elapsed = Math.min(time - previousTime || 16, 50);
+        previousTime = time;
+        const damping = 1 - Math.exp(-elapsed / 115);
+        gazeX += (targetX - gazeX) * damping;
+        gazeY += (targetY - gazeY) * damping;
+        showView(`${rowFor(gazeY)}-${columnFor(gazeX)}`);
+        if (Math.abs(targetX - gazeX) + Math.abs(targetY - gazeY) > 0.002) {
+          frame = requestAnimationFrame(animateGaze);
+        } else {
+          frame = 0;
+        }
+      };
+
+      const follow = (x, y) => {
+        targetX = Math.max(-1, Math.min(1, x));
+        targetY = Math.max(-1, Math.min(1, y));
+        if (!frame) {
+          previousTime = performance.now();
+          frame = requestAnimationFrame(animateGaze);
+        }
+      };
+
+      hero.addEventListener("pointermove", (event) => {
+        follow((event.clientX / window.innerWidth - 0.5) * 2, (event.clientY / window.innerHeight - 0.5) * 2);
+      }, { passive: true });
+      hero.addEventListener("pointerleave", () => follow(0, 0));
+      window.addEventListener("blur", () => follow(0, 0));
     }
 
   </script>
